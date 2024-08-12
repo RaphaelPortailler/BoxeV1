@@ -13,12 +13,10 @@ class BoxeAnglaiseController extends AbstractController
 {
 
     #[Route('/boxe-anglaise', 'home_boxe_anglaise')]
-    public function boxeAnglaise(BoxeurRepository $boxeurRepository):Response
+    public function boxeAnglaise():Response
     {
-        return $this->render('guest/anglaise.html.twig');
+        return $this->render('guest/anglaise/anglaise.html.twig');
     }
-
-
 
 
 
@@ -27,11 +25,10 @@ class BoxeAnglaiseController extends AbstractController
     {
         $boxeur = $boxeurRepository->findAll();
 
-        return $this->render('guest/anglaiseSuperPlumes.html.twig', [
+        return $this->render('guest/anglaise/anglaiseSuperPlumes.html.twig', [
             'boxeurs' => $boxeur
         ]);
     }
-
 
 
 
@@ -40,7 +37,7 @@ class BoxeAnglaiseController extends AbstractController
     {
         $boxeur = $boxeurRepository->findAll();
 
-        return $this->render('guest/anglaise64.html.twig', [
+        return $this->render('guest/anglaise/anglaiseSuperLourds.html.twig', [
             'boxeurs' => $boxeur
         ]);
 
