@@ -13,12 +13,10 @@ class BoxeAnglaiseController extends AbstractController
 {
 
     #[Route('/boxe-anglaise', 'home_boxe_anglaise')]
-    public function boxeAnglaise(BoxeurRepository $boxeurRepository):Response
+    public function boxeAnglaise():Response
     {
         return $this->render('guest/anglaise/anglaise.html.twig');
     }
-
-
 
 
 
@@ -31,7 +29,6 @@ class BoxeAnglaiseController extends AbstractController
             'boxeurs' => $boxeur
         ]);
     }
-
 
 
 
