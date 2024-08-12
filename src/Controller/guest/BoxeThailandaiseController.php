@@ -15,7 +15,7 @@ class BoxeThailandaiseController extends AbstractController
     #[Route('/boxe-thailandaise', 'home_boxe_thailandaise')]
     public function boxeThailandaise(BoxeurRepository $boxeurRepository): Response
     {
-        return $this->render('guest/thailandaise.html.twig');
+        return $this->render('guest/thailandaise/thailandaise.html.twig');
     }
 
 

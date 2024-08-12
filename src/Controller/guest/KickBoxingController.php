@@ -15,7 +15,7 @@ class KickBoxingController extends AbstractController
     #[Route('/kickboxing', 'home_kickboxing')]
     public function boxeThailandaise(BoxeurRepository $boxeurRepository): Response
     {
-        return $this->render('guest/kickboxing.html.twig');
+        return $this->render('guest/kickboxing/kickboxing.html.twig');
     }
 
 
