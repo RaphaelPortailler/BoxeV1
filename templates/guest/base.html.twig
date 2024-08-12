@@ -25,22 +25,42 @@
                 {# BOXE ANGLAISE #}
                 <li>
                     <a href="{{ path('home_boxe_anglaise') }}">Boxe Anglaise</a>
-                    <i class="fa-solid fa-chevron-down"></i>
+                    <i class="fa-solid fa-chevron-down">
+                        <ul class="ulNone">
+                            <li><a class="paddAncre" href="">Super-Plumes</a></li>
+                            <li><a class="paddAncre" href="">Super-Lourds</a></li>
+                        </ul>
+                    </i>
                 </li>
                 {# BOXE THAILANDAISE #}
                 <li>
                     <a href="{{ path('home_boxe_thailandaise') }}">Boxe Thaïlandaise</a>
-                    <i class="fa-solid fa-chevron-down"></i>
+                    <i class="fa-solid fa-chevron-down">
+                        <ul class="ulNone">
+                            <li><a class="paddAncre" href="">Super-Plumes</a></li>
+                            <li><a class="paddAncre" href="">Super-Lourds</a></li>
+                        </ul>
+                    </i>
                 </li>
                 {# KICK BOXING #}
                 <li>
                     <a href="{{ path('home_kickboxing') }}">Kick Boxing</a>
-                    <i class="fa-solid fa-chevron-down"></i>
+                    <i class="fa-solid fa-chevron-down">
+                        <ul class="ulNone">
+                            <li><a class="paddAncre" href="">Super-Plumes</a></li>
+                            <li><a class="paddAncre" href="">Super-Lourds</a></li>
+                        </ul>
+                    </i>
                 </li>
                 {# BOXE FRANCAISE #}
                 <li>
                     <a href="{{ path('home_boxe_francaise') }}">Boxe Française</a>
-                    <i class="fa-solid fa-chevron-down"></i>
+                    <i class="fa-solid fa-chevron-down">
+                        <ul class="ulNone">
+                            <li><a class="paddAncre" href="">Super-Plumes</a></li>
+                            <li><a class="paddAncre" href="">Super-Lourds</a></li>
+                        </ul>
+                    </i>
                 </li>
                 <li id="button" class="padd10px">
                     <a id="ancreLightBlue" href="">Inscription/Connexion</a>
@@ -71,9 +91,11 @@
                     <a href="">Politique de confidentialité</a>
                 </li>
                 <div id="divImgFooter">
-                    <a href="{{ path('home') }}">
-                        <img src="{{ asset('assets/img/JoshuaHeader.jpg') }}" alt="">
-                    </a>
+                    <li>
+                        <a href="{{ path('home') }}">
+                            <img src="{{ asset('assets/img/JoshuaHeader.jpg') }}" alt="">
+                        </a>
+                    </li>
                 </div>
                 <li>
                     <a href="">Contact</a>

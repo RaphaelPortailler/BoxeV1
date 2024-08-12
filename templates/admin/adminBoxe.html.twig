@@ -1,0 +1,69 @@
+{% extends 'admin/base.html.twig' %}
+
+    {% block title %}
+        Admin : Les Boxeurs
+    {% endblock %}
+
+
+
+{% block body %}
+
+    <h1 class="center paddH1Admin">Les Boxeurs : </h1>
+
+    <section>
+
+
+        <table>
+            <tr>
+                <td>Id</td>
+                <td>Image</td>
+                <td>Nom</td>
+                <td>Prenom</td>
+                <td>Date Naissance</td>
+                <td>Description</td>
+                {# <td colspan="2">Catégorie</td> #}
+                <td>Actions</td>
+            </tr>
+
+            {% for boxeur in boxeurs %}
+                <tr>
+                    <td>{{ boxeur.id }}</td>
+                    <td>
+                        {# <div id="divImgAdmin">
+                            <img src="{{ asset('uploads/'~article.image) }}" alt="{{ article.title }}" />
+                        </div> #}
+                    </td>
+                    <td>{{ boxeur.nom }}</td>
+                    <td>{{ boxeur.prenom }}</td>
+                    <td>{{ boxeur.DateNaissance | date('d-m-Y') }}</td>
+                    <td>{{ boxeur.description }}</td>
+                    {# <td>{{ boxeur.Pesers }}</td> #}
+
+                    {# <td>{{ article.category ? article.category.title : 'sans catégorie' }}</td> #}
+                    {# <td>
+                        {% if article.isPublished %}
+                            <p>Oui</p>
+                        {% else %}
+                            <p>Non</p>
+                        {% endif %}
+                    </td> #}
+                    <td>
+                        <a class="black" href="">Modifier</a>
+
+                        <p class="js-admin-article-delete">Supprimer</p>
+
+                        <div class="admin-article-popup-delete">
+                            <p>Voulez vous vraiment supprimer ?</p>
+
+                            <a href="">Supprimer</a>
+                        </div>
+                    </td>
+
+                </tr>
+            {% endfor %}
+        </table>
+
+
+    </section>
+
+{% endblock %}
