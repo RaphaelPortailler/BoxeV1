@@ -32,8 +32,6 @@ class AdminBoxeController extends AbstractController
 
 
 
-
-
     #[Route('/admin/boxeur/insert', name: 'insert_boxeur')]
     public function insertArticle(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger, ParameterBagInterface $params): Response
     {
@@ -89,11 +87,6 @@ class AdminBoxeController extends AbstractController
     }
 
 
-
-
-
-
-
     #[Route('/admin/boxeur/update/{id}', 'admin_update_boxeur')]
     public function updateArticle(int $id, Request $request, EntityManagerInterface $entityManager, BoxeurRepository $boxeurRepository): Response
     {
@@ -118,6 +111,38 @@ class AdminBoxeController extends AbstractController
         ]);
 
     }
+
+
+    #[Route('/admin/articles/delete/{id}', name: 'delete_articles')]
+    public function deleteArticle(int $id, BoxeurRepository $boxeurRepository, EntityManagerInterface $entityManager): Response
+    {
+        $boxeur = $boxeurRepository->find($id);
+
+        if (!$boxeur) {
+            $html = $this->renderView('admin/404.html.twig');
+            return new Response($html, 404);
+        }
+
+        try{
+            // j'utilise la classe entity manager
+            // pour préparer la requête SQL de suppression
+            // cette requête n'est pas executée tout de suite
+            $entityManager->remove($boxeur);
+            // j'execute la / les requête SQL préparée
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Boxeur bien supprimé');
+        } catch(\Exception $exception){
+            return $this->render('admin/page/error.html.twig', [
+                'error' => $exception->getMessage()
+            ]);
+        }
+
+        return $this->redirectToRoute('admin_boxe');
+    }
+
+
+
 
 
 
