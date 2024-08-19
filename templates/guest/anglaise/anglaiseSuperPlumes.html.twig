@@ -9,5 +9,23 @@
 {# ------------- BODY ------------- #}
 
         {% block body %}
-            <p>test</p>
+
+            <section class="w90 margin">
+                {% for boxeur in boxeurs %}
+                    <article class="w45flexWrap">
+                            {# {% for boxeur.img in boxeurs.img %} #}
+                                <div class="w90img">
+                                {# ZONE CARROUSSEL D'IMAGES #}
+                                    <img src="{{ asset('assets/img/JoshuaHeader.jpg') }}" alt="">
+                                </div>
+                            {# {% endblock %} #}
+                        <div class="padd11px">
+                            <h1 class="padd11px center">{{ boxeur.prenom }} {{ boxeur.nom }}</h1>
+                            <p class="center">texte a la con ziaebfuzeb eygfv zvefuz efuc zefu ezvfu efut avxeufy baexcugf zezefbcuez fuchzefuzex vfuib zexugfb zexoifb zbfizebfcuzefize bfui zecfux zeifx bezyfb xzei bfxeuz fxiezv fizeb fugze fxuizye vruhj</p>
+                            <p class="center padd11px"><a class="ancreBoxeAng" href="">En savoir +</a></p>
+                        </div>
+                    </article>
+                {% endfor %}
+            </section>
+
         {% endblock %}
