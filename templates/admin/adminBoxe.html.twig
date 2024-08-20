@@ -35,13 +35,13 @@
             <tbody>
 
 
-            {% for boxeur in boxeurs %}
+            {% for  boxeur in boxeurs %}
                 <tr>
                     <td>{{ boxeur.id }}</td>
                     <td>
-                        {# <div id="divImgAdmin">
-                            <img src="{{ asset('uploads/'~article.image) }}" alt="{{ article.title }}" />
-                        </div> #}
+                        <div class="divImgAdmin">
+                            <img src="{{ boxeur.image }}" alt="image de {{ boxeur.nom }}" />
+                        </div>
                     </td>
                     <td>{{ boxeur.nom }}</td>
                     <td>{{ boxeur.prenom }}</td>

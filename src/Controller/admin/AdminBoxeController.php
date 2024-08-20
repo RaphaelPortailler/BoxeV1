@@ -25,6 +25,7 @@ class AdminBoxeController extends AbstractController
     {
         $boxeur = $boxeurRepository->findAll();
 
+
         return $this->render('admin/adminBoxe.html.twig', [
             'boxeurs' => $boxeur
         ]);
