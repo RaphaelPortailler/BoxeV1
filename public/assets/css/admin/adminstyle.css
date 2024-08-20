@@ -1,0 +1,158 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none!important;
+}
+
+/* ---------- HEADER ---------- */
+
+header nav{
+    background-color: black;
+    height: 20vh;
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 9vh;
+}
+
+a{
+    color: white!important;
+}
+
+.black{
+    color: black!important;
+}
+
+/* ---------- MAIN ---------- */
+
+main{
+    height: 70vh;
+    background-image: url(../../img/JoshuaHeader.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+.accueiladmin{
+    position: absolute;
+    background-color: white;
+    padding: 50px;
+    border-radius: 500px;
+    font-size: 60px;
+    font-family: "Poppins", sans-serif;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+table{
+    border: solid 1px #2563EB;
+    margin: 50px auto;
+}
+
+td{
+    border: solid 1px black;
+    text-align: center;
+    width: 8%;
+}
+
+.paddH1Admin{
+    padding: 20px;
+}
+
+.center{
+    text-align: center;
+}
+
+td{
+    padding: 8px!important;
+}
+
+td p{
+    margin: 0!important;
+}
+
+.h1FormLog{
+    text-align: center;
+    padding: 30px;
+}
+
+.formAdmin{
+    width: 80%;
+    display: flex;
+    margin: auto;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.popupWrapper{
+    display: none;
+    background-color: rgba(0,0,0,0.7);
+    width:100vw;
+    height:100vh;
+    top:0;
+    left:0;
+    position: fixed;
+}
+
+.admin-article-popup-delete {
+    position: absolute;
+    color: white;
+    background-color: #2563EB;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    z-index:2000;
+}
+
+tr:nth-of-type(even){
+    background-color: #ddd!important;
+}
+
+.formAdmin div{
+    margin-bottom: 50px!important;
+}
+
+.btnConnexion{
+    transform: translateY(24px);
+}
+
+.iUpdate{
+    color: #2563EB;
+}
+
+i{
+    color: red;
+}
+
+.update{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#add{
+    text-align: center;
+}
+
+.addBoxeur{
+    color: rgb(95, 173, 45);
+    font-size: 32px;
+}
+
+
+
+
+/* ---------- FOOTER ---------- */
+
+footer{
+    background-color: black;
+    height: 20vh;
+    color: white;
+    text-align: center;
+    padding: 9vh;
+}

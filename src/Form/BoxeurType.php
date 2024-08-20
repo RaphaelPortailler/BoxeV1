@@ -25,7 +25,7 @@ class BoxeurType extends AbstractType
             ->add('Defaite')
             ->add('Egalite')
             ->add('submit', SubmitType::class, [
-                'label' => 'Enregistré le boxeur',
+                'label' => 'Enregistrer le boxeur',
             ])
         ;
     }
