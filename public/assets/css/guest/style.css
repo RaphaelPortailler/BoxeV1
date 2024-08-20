@@ -1,0 +1,243 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+img{
+    width: 100%;
+}
+
+a{
+    color: white;
+}
+
+#ancreBlue{
+    color: #145DA0;
+}
+
+.dblock{
+    display: block;
+}
+
+.font{
+    font-family: "Poppins", sans-serif;
+}
+
+/* ---------- HEADER ---------- */
+header{
+    height: 70vh;
+    background-image: url(../../img/JoshuaHeader.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+#navHeader{
+    background-color: #0C2D48;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    padding: 10px 0;
+}
+
+#ulHeader{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#button{
+    background-color: white;
+    border: solid 2px #145DA0;
+    border-radius: 10px;
+}
+
+i{
+    color: white;
+}
+
+.ulNone{
+    display: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+#ulHeader li{
+    position: relative;
+    transition: all 0.8s linear;
+}
+
+li:hover .ulNone{
+    display: block;
+    position: absolute;
+    top: 26px;
+    left: -15px;
+    background-color: #0C2D48;
+    padding: 10px;
+    width: 180px;
+    text-align: center;
+}
+
+.paddAncre{
+    padding: 15px;
+}
+
+.translate{
+    transform: translate(-3%, -2%);
+}
+
+
+#ancreLightBlue{
+    color: #145DA0;
+    padding: 10px;
+}
+
+.padd10px{
+    padding: 7px;
+}
+
+
+/* ---------- MAIN ---------- */
+
+/* ---------- PAGE D'ACCUEIL ---------- */
+.paddArticles10px{
+    padding: 10px;
+}
+
+#titleHome{
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding: 15px;
+    text-align: center;
+    color: #145DA0;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.w78{
+    width: 70%;
+}
+
+.paddArticles{
+    padding: 7px;
+}
+
+.center{
+    text-align: center;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bcgBlue{
+    background-color: #0C2D48;
+}
+
+.radius{
+    border: solid 2px white;
+    border-radius: 7px;
+}
+
+.shadow{
+    box-shadow: 10px 10px 4px gray;
+}
+
+.white{
+    color: white;
+}
+
+.DivImgArticles{
+    width: 80%;
+}
+
+.marginBot{
+    margin-bottom: 100px;
+}
+
+
+/* ---------- FOOTER ---------- */
+#navFooter{
+    background-color: #0C2D48;
+    width: 100%;
+    padding:10px 0;
+}
+
+#ulFooter{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#divImgFooter{
+    width: 5%;
+    border: solid 1px white;
+}
+
+
+
+/* ---------------------------------- BOXE ANGLAISE -------------------------------- */
+
+/* ---------- MAIN ---------- */
+
+.ancreBoxeAng{
+    color: #2563EB;
+}
+
+.w90flex{
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.w45{
+    width: 45%;
+    margin: auto;
+}
+
+.paddArtBoxeAng{
+    padding: 30px 0px 30px 0px;
+}
+
+button{
+    display: block;
+}
+
+/* ---------------------------------- BOXE ANGLAISE / SUPER PLUMES -------------------------------- */
+
+
+.w90{
+    width: 90%;
+    display: flex;
+    margin: 50px auto;
+    flex-wrap: wrap;
+}
+
+.w45flexWrap{
+    width: 45%;
+    margin: auto;
+}
+
+.w90img{
+    width: 90%;
+    margin: auto;
+}
+
+.padd11px{
+    padding: 11px;
+}
+
+
+
+
+

@@ -113,7 +113,7 @@ class AdminBoxeController extends AbstractController
     }
 
 
-    #[Route('/admin/articles/delete/{id}', name: 'delete_articles')]
+    #[Route('/admin/boxeur/delete/{id}', name: 'delete_boxeur')]
     public function deleteArticle(int $id, BoxeurRepository $boxeurRepository, EntityManagerInterface $entityManager): Response
     {
         $boxeur = $boxeurRepository->find($id);
@@ -133,7 +133,7 @@ class AdminBoxeController extends AbstractController
 
             $this->addFlash('success', 'Boxeur bien supprimé');
         } catch(\Exception $exception){
-            return $this->render('admin/page/error.html.twig', [
+            return $this->render('admin/error.html.twig', [
                 'error' => $exception->getMessage()
             ]);
         }
