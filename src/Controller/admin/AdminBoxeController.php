@@ -142,13 +142,4 @@ class AdminBoxeController extends AbstractController
         return $this->redirectToRoute('admin_boxe');
     }
 
-
-
-
-
-
-
-
-
-
 }
