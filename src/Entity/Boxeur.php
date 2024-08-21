@@ -71,6 +71,9 @@ class Boxeur
     #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'Boxeur')]
     private Collection $commentaires;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $resume = null;
+
 
 
 
@@ -325,6 +328,18 @@ class Boxeur
                 $commentaire->setBoxeur(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getResume(): ?string
+    {
+        return $this->resume;
+    }
+
+    public function setResume(string $resume): static
+    {
+        $this->resume = $resume;
 
         return $this;
     }

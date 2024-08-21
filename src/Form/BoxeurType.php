@@ -24,6 +24,7 @@ class BoxeurType extends AbstractType
                 'widget' => 'single_text',
             ])
             ->add('Description')
+            ->add('resume')
             ->add('Activite')
             ->add('Victoire')
             ->add('Defaite')
