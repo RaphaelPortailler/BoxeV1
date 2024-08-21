@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Boxeur;
+use App\Entity\TypeBoxe;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -40,4 +41,14 @@ class BoxeurRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+    public function findByTypeBoxe(TypeBoxe $typeBoxe)
+    {
+        return $this->createQueryBuilder('b')
+            ->join('b.pratiques', 'p')
+            ->andWhere('p.Type_boxe = :typeBoxe')
+            ->setParameter('typeBoxe', $typeBoxe)
+            ->getQuery()
+            ->getResult();
+    }
 }
