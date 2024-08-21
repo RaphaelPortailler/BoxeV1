@@ -26,6 +26,10 @@ a{
     font-family: "Poppins", sans-serif;
 }
 
+.beigeChaud{
+    color: #ddcca3;
+}
+
 /* ---------- HEADER ---------- */
 header{
     height: 70vh;
