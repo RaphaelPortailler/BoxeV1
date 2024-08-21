@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controller\guest;
 
+use App\Repository\PratiqueRepository;
+use App\Repository\TypeBoxeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository\BoxeurRepository;
@@ -13,10 +15,22 @@ class BoxeAnglaiseController extends AbstractController
 {
 
     #[Route('/boxe-anglaise', 'home_boxe_anglaise')]
-    public function boxeAnglaise():Response
+    public function boxeAnglaise(BoxeurRepository $boxeurRepository, TypeBoxeRepository $typeBoxeRepository)
     {
-        return $this->render('guest/anglaise/anglaise.html.twig');
+        $typeBoxe = $typeBoxeRepository->findOneById(1);
+
+        if ($typeBoxe) {
+            $boxeurs = $boxeurRepository->findByTypeBoxe($typeBoxe);
+
+            return $this->render('guest/anglaise/anglaise.html.twig', [
+                'boxeurs' => $boxeurs,
+                'typeBoxe' => $typeBoxe
+            ]);
+        }
+        return $this->render('guest/404.html.twig');
     }
+
+
 
 
 

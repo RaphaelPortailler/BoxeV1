@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\guest;
 
+use App\Repository\TypeBoxeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository\BoxeurRepository;
@@ -13,10 +14,21 @@ class KickBoxingController extends AbstractController
 {
 
     #[Route('/kickboxing', 'home_kickboxing')]
-    public function kickboxing(): Response
+    public function kickboxing(BoxeurRepository $boxeurRepository, TypeBoxeRepository $typeBoxeRepository): Response
     {
-        return $this->render('guest/kickboxing/kickboxing.html.twig');
+        $typeBoxe = $typeBoxeRepository->findOneById(3);
+
+        if ($typeBoxe)
+        {
+            $boxeurs = $boxeurRepository->findByTypeBoxe($typeBoxe);
+            return $this->render('guest/kickboxing/kickboxing.html.twig', [
+            'boxeurs' => $boxeurs,
+            'typeBoxe' => $typeBoxe
+            ]);
+        }
+        return $this->render('guest/404.html.twig');
     }
+
 
 
     #[Route('/kickboxing/superplumes', 'kickboxing_superplumes')]

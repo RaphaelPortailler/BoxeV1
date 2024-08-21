@@ -13,100 +13,38 @@
             <h1 id="titleHome" class="font">Kick Boxing </h1>
             <section class="w90flex wrap">
 
-                {# ------------- First Article ------------- #}
-                <article class="w45">
+                {% for boxeur in boxeurs %}
+                    {# {% for pratique in boxeur.pratiques %} #}
+                    {# ------------- First Article ------------- #}
+                    <article class="w45">
 
-                    {# ------------- IMG Articles ------------- #}
-                    <div>
-                        <img src="{{ asset('assets/img/JoshuaVSNgannou.jpg') }}" alt="">
-                    </div>
+                        {# ------------- IMG Articles ------------- #}
+                        <div>
+                            <img src="{{ asset('assets/img/JoshuaVSNgannou.jpg') }}" alt="">
+                        </div>
 
-                    {# ------------- Text Article ------------- #}
-                    <div class="paddArtBoxeAng">
-                        <h2 class="center">Titre :</h2>
-                        <p class="paddArtBoxeAng">
-                            Lorem ipsum aidzbyuzbdahbciabczr
-                            rczeiy rbciezrapezin ezrnoazeioz erbczear
-                            cearbicezcue ziocnzercn zerbiae zrnazerc
-                            cbri eczrbaezro ieazycbzreib eazrice
-                        </p>
+                        {# ------------- Text Article ------------- #}
+                        <div class="paddArtBoxeAng">
+                            <h2 class="center">{{ boxeur.prenom }} {{ boxeur.nom }}</h2>
+                            <p class="paddArtBoxeAng">
+                                {{ boxeur.description }}
+                            </p>
+                            <p>
+                                Victoire : {{ boxeur.victoire }}
+                            </p>
+                            <p>
+                                Défaite : {{ boxeur.defaite }}
+                            </p>
+                            <p>
+                                Égalité : {{ boxeur.egalite }}
+                            </p>
 
-                        {# ------------- En Savoir Plus ------------- #}
-                        <div class="center"><a id="ancreBlue" href="">En savoir plus</a></div>
-                    </div>
-                </article>
-
-
-                {# ------------- Second Article ------------- #}
-                <article class="w45">
-
-                    {# ------------- IMG Articles ------------- #}
-                    <div>
-                        <img src="{{ asset('assets/img/CedricDoumbe.jpg') }}" alt="">
-                    </div>
-
-                    {# ------------- Text Article ------------- #}
-                    <div class="paddArtBoxeAng">
-                        <h2 class="center">Titre :</h2>
-                        <p class="paddArtBoxeAng">
-                            Lorem ipsum aidzbyuzbdahbciabczr
-                            rczeiy rbciezrapezin ezrnoazeioz erbczear
-                            cearbicezcue ziocnzercn zerbiae zrnazerc
-                            cbri eczrbaezro ieazycbzreib eazrice
-                        </p>
-
-                        {# ------------- En Savoir Plus ------------- #}
-                        <div class="center"><a id="ancreBlue" href="">En savoir plus</a></div>
-                    </div>
-                </article>
-
-
-                {# ------------- Third Article ------------- #}
-                <article class="w45">
-
-                    {# ------------- IMG Articles ------------- #}
-                    <div>
-                        <img src="{{ asset('assets/img/YoussefBoughanem.jpg') }}" alt="">
-                    </div>
-
-                    {# ------------- Text Article ------------- #}
-                    <div class="paddArtBoxeAng">
-                        <h2 class="center">Titre :</h2>
-                        <p class="paddArtBoxeAng">
-                            Lorem ipsum aidzbyuzbdahbciabczr
-                            rczeiy rbciezrapezin ezrnoazeioz erbczear
-                            cearbicezcue ziocnzercn zerbiae zrnazerc
-                            cbri eczrbaezro ieazycbzreib eazrice
-                        </p>
-
-                        {# ------------- En Savoir Plus ------------- #}
-                        <div class="center"><a id="ancreBlue" href="">En savoir plus</a></div>
-                    </div>
-                </article>
-
-
-                {# ------------- Fourth Article ------------- #}
-                <article class="w45">
-
-                    {# ------------- IMG Articles ------------- #}
-                    <div>
-                        <img src="{{ asset('assets/img/JoshuaVSNgannou.jpg') }}" alt="">
-                    </div>
-
-                    {# ------------- Text Article ------------- #}
-                    <div class="paddArtBoxeAng">
-                        <h2 class="center"s>Titre :</h2>
-                        <p class="paddArtBoxeAng">
-                            Lorem ipsum aidzbyuzbdahbciabczr
-                            rczeiy rbciezrapezin ezrnoazeioz erbczear
-                            cearbicezcue ziocnzercn zerbiae zrnazerc
-                            cbri eczrbaezro ieazycbzreib eazrice
-                        </p>
-
-                        {# ------------- En Savoir Plus ------------- #}
-                        <div class="center"><a id="ancreBlue" href="">En savoir plus</a></div>
-                    </div>
-                </article>
+                            {# ------------- En Savoir Plus ------------- #}
+                            <div class="center"><a id="ancreBlue" href="">En savoir plus</a></div>
+                        </div>
+                    </article>
+                    {# {% endfor %} #}
+                {% endfor %}
             </section
 
 
