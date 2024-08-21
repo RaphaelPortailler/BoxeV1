@@ -31,9 +31,6 @@ class BoxeAnglaiseController extends AbstractController
     }
 
 
-
-
-
     #[Route('/boxe-anglaise/superplumes', 'boxe_anglaise_superplumes')]
     public function boxeAnglaise57(BoxeurRepository $boxeurRepository):Response
     {
@@ -55,6 +52,22 @@ class BoxeAnglaiseController extends AbstractController
             'boxeurs' => $boxeur
         ]);
 
+    }
+
+
+    #[Route('/show-boxeur/{id}', name: 'show_boxeur')]
+    public function showBoxeur(int $id, BoxeurRepository $boxeurRepository ):Response
+    {
+        $boxeurs = $boxeurRepository->find($id);
+
+        if (!$boxeurs) {
+            $html404 = $this->renderView('guest/404.html.twig');
+            return new Response($html404, 404);
+        }
+
+        return $this->render('guest/showBoxeur.html.twig', [
+            'boxeur' => $boxeurs
+        ]);
     }
 
 

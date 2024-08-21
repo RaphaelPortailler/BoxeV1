@@ -29,18 +29,8 @@
                             <p class="paddArtBoxeAng center">
                                 {{ boxeur.resume }}
                             </p>
-                            <p>
-                                <span class="beigeChaud">Victoire :</span> {{ boxeur.victoire }}
-                            </p>
-                            <p>
-                                <span class="beigeChaud">Défaite :</span> {{ boxeur.defaite }}
-                            </p>
-                            <p>
-                                <span class="beigeChaud">Égalité :</span> {{ boxeur.egalite }}
-                            </p>
-
                             {# ------------- En Savoir Plus ------------- #}
-                            <div class="center"><a id="ancreBlue" href="">En savoir plus</a></div>
+                            <div class="center"><a id="ancreBlue" href="{{ path('show_boxeur', {id:boxeur.id}) }}">En savoir plus</a></div>
                         </div>
                     </article>
                     {# {% endfor %} #}

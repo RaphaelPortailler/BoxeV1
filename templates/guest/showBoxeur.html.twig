@@ -9,12 +9,8 @@
 {# ------------- BODY ------------- #}
 
         {% block body %}
-            {# ------------- TITRE H1 ------------- #}
-
-            <h1 id="titleHome" class="font">Boxe Anglaise </h1>
             <section class="w90flex wrap">
-                {% for boxeur in boxeurs %}
-                    {# {% for pratique in boxeur.pratiques %} #}
+
                     {# ------------- First Article ------------- #}
                     <article class="w45 font">
 
@@ -27,13 +23,18 @@
                         <div class="paddArtBoxeAng">
                             <h2 class="center beigeChaud">{{ boxeur.prenom }} {{ boxeur.nom }}</h2>
                             <p class="paddArtBoxeAng center">
-                                {{ boxeur.resume }}
+                                {{ boxeur.description }}
                             </p>
-                            {# ------------- En Savoir Plus ------------- #}
-                            <div class="center"><a id="ancreBlue" href="{{ path('show_boxeur', {id:boxeur.id}) }}">En savoir plus</a></div>
+                            <p class="center">
+                                <span class="beigeChaud">Victoire :</span> {{ boxeur.victoire }}
+                            </p>
+                            <p class="center">
+                                <span class="beigeChaud">Défaite :</span> {{ boxeur.defaite }}
+                            </p>
+                            <p class="center">
+                                <span class="beigeChaud">Égalité :</span> {{ boxeur.egalite }}
+                            </p>
                         </div>
                     </article>
-                    {# {% endfor %} #}
-                {% endfor %}
             </section>
         {% endblock %}
