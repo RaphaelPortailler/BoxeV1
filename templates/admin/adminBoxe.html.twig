@@ -39,7 +39,7 @@
                     <td>{{ boxeur.id }}</td>
                     <td>
                         <div class="divImgAdmin">
-                            <img src="{{ boxeur.image }}" alt="image de {{ boxeur.nom }}" />
+                            <img src="{{ asset('assets/uploads/'~boxeur.image) }}" alt="image de {{ boxeur.nom }}" />
                         </div>
                     </td>
                     <td>{{ boxeur.nom }}</td>

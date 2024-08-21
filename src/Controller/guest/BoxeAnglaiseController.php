@@ -7,8 +7,8 @@ namespace App\Controller\guest;
 use App\Repository\PratiqueRepository;
 use App\Repository\TypeBoxeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use App\Repository\BoxeurRepository;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class BoxeAnglaiseController extends AbstractController
