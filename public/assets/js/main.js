@@ -17,9 +17,9 @@ const deleteArticleButtons = document.querySelectorAll('.js-admin-article-delete
        // popup.style.display = "block";
 
    // });
-let tableau = new DataTable('#myTable');
+let dataTable = new DataTable('#myTable');
 
-tableau.on('click', 'tbody tr .js-admin-article-delete', function () {
+dataTable.on('click', 'tbody tr .js-admin-article-delete', function () {
 
     this.closest('td').querySelector('.popupWrapper').style.display = "block"
 });

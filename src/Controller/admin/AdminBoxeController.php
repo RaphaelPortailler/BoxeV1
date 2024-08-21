@@ -46,33 +46,35 @@ class AdminBoxeController extends AbstractController
             // $boxeur->setUpdatedAt(new \DateTime('NOW'));
 
             // récupérer le nom du fichier
-            // $imageFile = $boxeurForm->get('image')->getData();
+            $imageFile = $boxeurForm->get('image')->getData();
 
             // si il y a bien un fichier envoyé
-            // if ($imageFile) {
+             if ($imageFile)
+             {
                 // je récupère son nom
-                //$originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
 
                 // je nettoie le nom (sort les caractères spéciaux etc)
-                //$safeFilename = $slugger->slug($originalFilename);
+                $safeFilename = $slugger->slug($originalFilename);
 
                 // je rajoute un identifiant unique au nom
-                //$newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
 
-                //try {
+                try
+                {
                     // je récupère le chemin de la racine du projet
-                    //$rootPath = $params->get('kernel.project_dir');
+                    $rootPath = $params->get('kernel.project_dir');
 
                     // je déplace le fichier dans le dossier /public/upload en partant de la racine
                     // du projet, et je renomme le fichier avec le nouveau nom (slugifié et identifiant unique)
-                    //$imageFile->move( $rootPath.'/public/uploads', $newFilename);
-                //} catch (FileException $e){
-                    //dd($e->getMessage());
-                //}
+                    $imageFile->move( $rootPath.'/public/assets/uploads', $newFilename);
+                } catch (FileException $e){
+                    dd($e->getMessage());
+                }
 
                 // je stocke dans la propriété image de l'entité article le nom du fichier
-                // $boxeur->setImage($newFilename);
-            // }
+                 $boxeur->setImage($newFilename);
+            }
 
             $entityManager->persist($boxeur);
             $entityManager->flush();
@@ -89,7 +91,7 @@ class AdminBoxeController extends AbstractController
 
 
     #[Route('/admin/boxeur/update/{id}', 'admin_update_boxeur')]
-    public function updateArticle(int $id, Request $request, EntityManagerInterface $entityManager, BoxeurRepository $boxeurRepository): Response
+    public function updateArticle(int $id, Request $request, EntityManagerInterface $entityManager, BoxeurRepository $boxeurRepository, SluggerInterface $slugger, ParameterBagInterface $params): Response
     {
         $boxeur = $boxeurRepository->find($id);
 
@@ -99,6 +101,36 @@ class AdminBoxeController extends AbstractController
 
         if ($boxeurForm->isSubmitted() && $boxeurForm->isValid())
         {
+            // récupérer le nom du fichier
+            $imageFile = $boxeurForm->get('image')->getData();
+
+            // si il y a bien un fichier envoyé
+            if ($imageFile)
+            {
+                // je récupère son nom
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+
+                // je nettoie le nom (sort les caractères spéciaux etc)
+                $safeFilename = $slugger->slug($originalFilename);
+
+                // je rajoute un identifiant unique au nom
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+
+                try
+                {
+                    // je récupère le chemin de la racine du projet
+                    $rootPath = $params->get('kernel.project_dir');
+
+                    // je déplace le fichier dans le dossier /public/upload en partant de la racine
+                    // du projet, et je renomme le fichier avec le nouveau nom (slugifié et identifiant unique)
+                    $imageFile->move( $rootPath.'/public/assets/uploads', $newFilename);
+                } catch (FileException $e){
+                    dd($e->getMessage());
+                }
+
+                // je stocke dans la propriété image de l'entité article le nom du fichier
+                $boxeur->setImage($newFilename);
+            }
             $entityManager->persist($boxeur);
             $entityManager->flush();
 
