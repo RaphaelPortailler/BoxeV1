@@ -12,19 +12,16 @@
             {# ------------- TITRE H1 ------------- #}
             <h1 id="titleHome" class="font">Kick Boxing </h1>
             <section class="w90flex wrap">
-
                 {% for boxeur in boxeurs %}
-                    {# {% for pratique in boxeur.pratiques %} #}
-                    {# ------------- First Article ------------- #}
                     <article class="w45 font">
-
                         {# ------------- IMG Articles ------------- #}
-                        <div>
-                            <img src="{{ asset('assets/img/JoshuaVSNgannou.jpg') }}" alt="">
-                        </div>
+
 
                         {# ------------- Text Article ------------- #}
                         <div class="paddArtBoxeAng">
+                            <div class="height300px">
+                                <img src="{{ asset('assets/uploads/'~boxeur.image) }}" alt="Image de {{ boxeur.nom }}"/>
+                            </div>
                             <h2 class="center beigeChaud">{{ boxeur.prenom }} {{ boxeur.nom }}</h2>
                             <p class="paddArtBoxeAng center">
                                 {{ boxeur.resume }}
@@ -33,9 +30,6 @@
                             <div class="center"><a id="ancreBlue" href="{{ path('show_boxeur', {id:boxeur.id}) }}">En savoir plus</a></div>
                         </div>
                     </article>
-                    {# {% endfor %} #}
                 {% endfor %}
-            </section
-
-
+            </section>
         {% endblock %}

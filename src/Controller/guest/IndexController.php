@@ -17,13 +17,30 @@ class IndexController extends AbstractController
 {
     // #[Route est une annotation qui permet de créer une route, c'est a dire une nouvelle page sur notre appli quand
     // l'url est appelé et ça éxécute automatiquement la méthode définit sous la route
-    #[Route('/', 'home')]
-    public function index(BoxeurRepository $boxeurRepository)
+    // #[Route('/', 'home')]
+    // public function index(BoxeurRepository $boxeurRepository)
+    // {
+        // $boxeurs = $boxeurRepository->findAll();
+
+        // return $this->render('guest/index.html.twig', [
+            // 'boxeurs' => $boxeurs,
+        // ]);
+    // }
+
+    #[Route('/', name: 'home')]
+    public function randomBoxeur(BoxeurRepository $boxeurRepository)
     {
         $boxeurs = $boxeurRepository->findAll();
+        $randomBoxeurs = [];
+
+        if (!empty($boxeurs)) {
+            $randomBoxeurs = array_rand($boxeurs, min(4, count($boxeurs)));
+            $randomBoxeurs = array_map(fn($key) => $boxeurs[$key], $randomBoxeurs);
+        }
+
         return $this->render('guest/index.html.twig', [
             'boxeurs' => $boxeurs,
+            'randomBoxeurs' => $randomBoxeurs
         ]);
     }
-
 }
