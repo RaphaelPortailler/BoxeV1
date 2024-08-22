@@ -14,14 +14,9 @@
             <h1 id="titleHome" class="font">Boxe Anglaise </h1>
             <section class="w90flex wrap">
                 {% for boxeur in boxeurs %}
-                    {# {% for pratique in boxeur.pratiques %} #}
-                    {# ------------- First Article ------------- #}
                     <article class="w45 font">
-
                         {# ------------- IMG Articles ------------- #}
-                        <div>
-                            <img src="{{ asset('assets/img/JoshuaVSNgannou.jpg') }}" alt="">
-                        </div>
+
 
                         {# ------------- Text Article ------------- #}
                         <div class="paddArtBoxeAng">
@@ -33,7 +28,6 @@
                             <div class="center"><a id="ancreBlue" href="{{ path('show_boxeur', {id:boxeur.id}) }}">En savoir plus</a></div>
                         </div>
                     </article>
-                    {# {% endfor %} #}
                 {% endfor %}
             </section>
         {% endblock %}

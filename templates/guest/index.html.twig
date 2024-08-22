@@ -9,6 +9,29 @@
 {# ------------- BODY ------------- #}
 
         {% block body %}
+            {# ------------- CAROUSSEL ------------- #}
+            <section class="marginCaroussel">
+                <div class="owl-carousel">
+                    <div><img src="{{ asset('assets/img/mayweather.jpg') }}" alt="Photo de Mayweather"></div>
+                    <div><img src="{{ asset('assets/img/CaneloAlvarez.png') }}" alt="Photo de Canelo"></div>
+                    <div><img src="{{ asset('assets/img/MannyPacquiao.jpg') }}" alt="Photo de Pacquiao"></div>
+                    <div><img src="{{ asset('assets/img/Evander.jpg') }}" alt="Photo de Evander Holyfield"></div>
+                    <div><img src="{{ asset('assets/img/MikeTyson.webp') }}" alt="Photo de Mike Tyson"></div>
+                    <div><img src="{{ asset('assets/img/JoshuaHeader.jpg') }}" alt="Photo de Anthony Joshua"></div>
+                    <div><img src="{{ asset('assets/img/MuhammadAli.jpg') }}" alt="Photo de Muhammad Ali"></div>
+                    <div><img src="{{ asset('assets/img/Buakaw.jpg') }}" alt="Photo de Buakaw"></div>
+                    <div><img src="{{ asset('assets/img/CirylGane.jpg') }}" alt="Photo de Cyril Gane"></div>
+                    <div><img src="{{ asset('assets/img/CedricDoumbe.jpg') }}" alt="Photo de Cedric Doumbe"></div>
+                    <div><img src="{{ asset('assets/img/LeBanner.webp') }}" alt="Photo de Jerome Le Banner"></div>
+                    <div><img src="{{ asset('assets/img/YassineBoughanem.webp') }}" alt="Photo de Yassine Boughanem"></div>
+                    <div><img src="{{ asset('assets/img/YoussefBoughanem.jpg') }}" alt="Photo de Youssef Boughanem"></div>
+                    <div><img src="{{ asset('assets/img/PeterAerts.jpg') }}" alt="Photo de Peter Aerts"></div>
+                    <div><img src="{{ asset('assets/img/DielsenoiChorThanakusarn.jpeg') }}" alt="Photo de Dielsenoi Chor Thanakusarn"></div>
+                    <div><img src="{{ asset('assets/img/Kobayashi.jpg') }}" alt="Photo de Masato Kobayashi"></div>
+                    <div><img src="{{ asset('assets/img/Saenpong.jpg') }}" alt="Photo de Supachai Saenpong"></div>
+                </div>
+            </section>
+
             {# ------------- TITRE H1 ------------- #}
             <h1 id="titleHome" class="font">Derniers Articles </h1>
             <section class="w78 font">
@@ -108,6 +131,23 @@
                     </div>
                 </article>
             </section>
-
-
         {% endblock %}
+        {% block javascript %}
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous">
+        </script>
+        <script src="{{ asset('assets/js/OwlCaroussel/owl.carousel.min.js') }}"></script>
+        <script>
+            $(document).ready(function(){
+                $(".owl-carousel").owlCarousel({
+                    loop:true,
+                    autoplay:true,
+                    center: true,
+                    autoplayTimeout:1500,
+                    autoplayHoverPause:true
+                });
+        });
+        </script>
+    {% endblock %}
