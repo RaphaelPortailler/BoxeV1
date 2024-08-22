@@ -23,102 +23,29 @@
             {# ------------- TITRE H1 ------------- #}
             <h1 id="titleHome" class="font">Derniers Articles </h1>
             <section class="w78 font">
-
-                {# ------------- First Article ------------- #}
-                <article class="paddArticles flex">
-
-                    {# ------------- IMG Articles ------------- #}
-                    <div class="DivImgArticles">
-                        <img src="{{ asset('assets/img/JoshuaVSNgannou.jpg') }}" alt="">
+                <div>
+                    {% if randomBoxeurs is not empty %}
+                    <div>
+                        {% for boxeur in randomBoxeurs %}
+                            <article class="paddArticles flex littleMarginBot">
+                                <div class="DivImgArticles">
+                                    <img src="{{ asset('assets/uploads/'~boxeur.image) }}" alt="Image de {{ boxeur.nom }}"/>
+                                </div>
+                                {# ------------- Text Article ------------- #}
+                                <div class="flex2 bcgBlue paddArticles shadow translate radius">
+                                    <h2 class="white center paddArticles10px">{{ boxeur.prenom }} {{ boxeur.nom }}</h2>
+                                    <p class="white paddArticles10px">
+                                        {{ boxeur.resume }}
+                                    </p>
+                                {# ------------- En Savoir Plus ------------- #}
+                                <a id="ancreBlue" class="center dblock paddArticles10px" href="{# {{ path('show_boxeur', {id:boxeur.id}) }} #}">En savoir plus</a>
+                            </article>
+                        {% endfor %}
                     </div>
-
-                    {# ------------- Text Article ------------- #}
-                    <div class="bcgBlue paddArticles shadow translate radius">
-                        <h2 class="white center paddArticles10px">Anthony Joshua</h2>
-                        <p class="white paddArticles10px">
-                            Lorem ipsum aidzbyuzbdahbciabczr
-                            rczeiy rbciezrapezin ezrnoazeioz erbczear
-                            cearbicezcue ziocnzercn zerbiae zrnazerc
-                            cbri eczrbaezro ieazycbzreib eazrice
-                        </p>
-
-                        {# ------------- En Savoir Plus ------------- #}
-                        <a id="ancreBlue" class="center dblock paddArticles10px" href="{# {{ path('show_boxeur', {id:boxeur.id}) }} #}">En savoir plus</a>
-                    </div>
-                </article>
-
-
-                {# ------------- Second Article ------------- #}
-                <article class="paddArticles flex">
-
-                    {# ------------- IMG Articles ------------- #}
-                    <div class="DivImgArticles">
-                        <img src="{{ asset('assets/img/CedricDoumbe.jpg') }}" alt="">
-                    </div>
-
-                    {# ------------- Text Article ------------- #}
-                    <div class="bcgBlue paddArticles shadow translate radius">
-                        <h2 class="white center paddArticles10px">Titre :</h2>
-                        <p class="white paddArticles10px">
-                            Lorem ipsum aidzbyuzbdahbciabczr
-                            rczeiy rbciezrapezin ezrnoazeioz erbczear
-                            cearbicezcue ziocnzercn zerbiae zrnazerc
-                            cbri eczrbaezro ieazycbzreib eazrice
-                        </p>
-
-                        {# ------------- En Savoir Plus ------------- #}
-                        <a id="ancreBlue" class="center dblock paddArticles10px" href="">En savoir plus</a>
-                    </div>
-                </article>
-
-
-                {# ------------- Third Article ------------- #}
-                <article class="paddArticles flex">
-
-                    {# ------------- IMG Articles ------------- #}
-                    <div class="DivImgArticles">
-                        <img src="{{ asset('assets/img/YoussefBoughanem.jpg') }}" alt="">
-                    </div>
-
-                    {# ------------- Text Article ------------- #}
-                    <div class="bcgBlue paddArticles shadow translate radius">
-                        <h2 class="white center paddArticles10px">Titre :</h2>
-                        <p class="white paddArticles10px">
-                            Lorem ipsum aidzbyuzbdahbciabczr
-                            rczeiy rbciezrapezin ezrnoazeioz erbczear
-                            cearbicezcue ziocnzercn zerbiae zrnazerc
-                            cbri eczrbaezro ieazycbzreib eazrice
-                        </p>
-
-                        {# ------------- En Savoir Plus ------------- #}
-                        <a id="ancreBlue" class="center dblock paddArticles10px" href="">En savoir plus</a>
-                    </div>
-                </article>
-
-
-                {# ------------- Fourth Article ------------- #}
-                <article class="paddArticles flex marginBot">
-
-                    {# ------------- IMG Articles ------------- #}
-                    <div class="DivImgArticles">
-                        <img src="{{ asset('assets/img/JoshuaVSNgannou.jpg') }}" alt="">
-                    </div>
-
-                    {# ------------- Text Article ------------- #}
-                    <div class="bcgBlue paddArticles shadow translate radius">
-                        <h2 class="white center paddArticles10px">Titre :</h2>
-                        <p class="white paddArticles10px">
-                            Lorem ipsum aidzbyuzbdahbciabczr
-                            rczeiy rbciezrapezin ezrnoazeioz erbczear
-                            cearbicezcue ziocnzercn zerbiae zrnazerc
-                            cbri eczrbaezro ieazycbzreib eazrice
-                        </p>
-
-                        {# ------------- En Savoir Plus ------------- #}
-                        <a id="ancreBlue" class="center dblock paddArticles10px" href="">En savoir plus</a>
-                    </div>
-                </article>
+                    {% endif %}
+                </div>
             </section>
+
         {% endblock %}
         {% block javascript %}
         <script
@@ -133,7 +60,7 @@
                     loop:true,
                     autoplay:true,
                     center: true,
-                    autoplayTimeout:1500,
+                    autoplayTimeout:2000,
                     autoplayHoverPause:true
                 });
         });
