@@ -30,6 +30,14 @@ a{
     color: #ddcca3;
 }
 
+.owl-carousel img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    padding: 5px;
+}
+
+
 /* ---------- HEADER ---------- */
 header{
     height: 70vh;
@@ -165,6 +173,11 @@ li:hover .ulNone{
 
 .marginBot{
     margin-bottom: 100px;
+}
+
+.marginCaroussel{
+    width: 45%;
+    margin: 100px auto 0px auto;
 }
 
 

@@ -9,6 +9,17 @@
 {# ------------- BODY ------------- #}
 
         {% block body %}
+            {# ------------- CAROUSSEL ------------- #}
+            <section class="marginCaroussel">
+                <div class="owl-carousel">
+                    {% for boxeur in boxeurs %}
+                        <div>
+                            <img src="{{ asset('assets/uploads/'~boxeur.image) }}" alt="image de {{ boxeur.nom }}" />
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+
             {# ------------- TITRE H1 ------------- #}
             <h1 id="titleHome" class="font">Derniers Articles </h1>
             <section class="w78 font">
@@ -23,7 +34,7 @@
 
                     {# ------------- Text Article ------------- #}
                     <div class="bcgBlue paddArticles shadow translate radius">
-                        <h2 class="white center paddArticles10px">Titre :</h2>
+                        <h2 class="white center paddArticles10px">Anthony Joshua</h2>
                         <p class="white paddArticles10px">
                             Lorem ipsum aidzbyuzbdahbciabczr
                             rczeiy rbciezrapezin ezrnoazeioz erbczear
@@ -32,7 +43,7 @@
                         </p>
 
                         {# ------------- En Savoir Plus ------------- #}
-                        <a id="ancreBlue" class="center dblock paddArticles10px" href="">En savoir plus</a>
+                        <a id="ancreBlue" class="center dblock paddArticles10px" href="{# {{ path('show_boxeur', {id:boxeur.id}) }} #}">En savoir plus</a>
                     </div>
                 </article>
 
@@ -108,6 +119,23 @@
                     </div>
                 </article>
             </section>
-
-
         {% endblock %}
+        {% block javascript %}
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous">
+        </script>
+        <script src="{{ asset('assets/js/OwlCaroussel/owl.carousel.min.js') }}"></script>
+        <script>
+            $(document).ready(function(){
+                $(".owl-carousel").owlCarousel({
+                    loop:true,
+                    autoplay:true,
+                    center: true,
+                    autoplayTimeout:1500,
+                    autoplayHoverPause:true
+                });
+        });
+        </script>
+    {% endblock %}
