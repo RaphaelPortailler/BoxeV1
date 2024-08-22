@@ -44,10 +44,21 @@ a{
     object-position: top;
 }
 
+.result{
+    width: 50%;
+    display: flex;
+    margin: 0 auto;
+    background-color: #0C2D48;
+    padding: 7px;
+    justify-content: space-evenly;
+    transform: translateY(-11px);
+    border-radius: 10px;
+}
+
 
 /* ---------- HEADER ---------- */
 header{
-    height: 70vh;
+    height: 80vh;
     background-image: url(../../img/JoshuaHeader.jpg);
     background-size: cover;
     position: relative;
@@ -200,6 +211,10 @@ li:hover .ulNone{
 
 .marginBot{
     margin-bottom: 100px;
+}
+
+.marginTop{
+    margin-top: 50px;
 }
 
 .marginCaroussel{

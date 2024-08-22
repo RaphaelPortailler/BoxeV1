@@ -15,16 +15,12 @@
                     <article class="w45 font">
 
                         {# ------------- IMG Articles ------------- #}
-                        <div>
-                            <img src="{{ asset('assets/img/JoshuaVSNgannou.jpg') }}" alt="">
+                        <div class="marginTop">
+                            <img src="{{ asset('assets/uploads/'~boxeur.image) }}" alt="image de {{ boxeur.nom }}" />
                         </div>
 
-                        {# ------------- Text Article ------------- #}
-                        <div class="paddArtBoxeAng">
-                            <h2 class="center beigeChaud">{{ boxeur.prenom }} {{ boxeur.nom }}</h2>
-                            <p class="paddArtBoxeAng center">
-                                {{ boxeur.description }}
-                            </p>
+                        {# ------------- RESULT ------------- #}
+                        <div class="result">
                             <p class="center">
                                 <span class="beigeChaud">Victoire :</span> {{ boxeur.victoire }}
                             </p>
@@ -33,6 +29,14 @@
                             </p>
                             <p class="center">
                                 <span class="beigeChaud">Égalité :</span> {{ boxeur.egalite }}
+                            </p>
+                        </div>
+
+                        {# ------------- Text Article ------------- #}
+                        <div class="paddArtBoxeAng">
+                            <h2 class="center beigeChaud">{{ boxeur.prenom }} {{ boxeur.nom }}</h2>
+                            <p class="paddArtBoxeAng center">
+                                {{ boxeur.description }}
                             </p>
                         </div>
                     </article>
