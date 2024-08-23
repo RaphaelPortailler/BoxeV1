@@ -112,6 +112,7 @@ li:hover .ulNone{
     width: 180px;
     text-align: center;
     transform: translateY(100%);
+    z-index: 1000;
 }
 
 .paddAncre{
@@ -297,6 +298,28 @@ button{
 .padd11px{
     padding: 11px;
 }
+
+
+/* ---------------------------------- BOXE FRANCAISE -------------------------------- */
+
+.frameGif{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    pointer-events: none;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ---------------------------------- BOXE FRANCAISE SUPERLOURD/LEGERS -------------------------------- */
+
+.heavyMarginTop{
+    margin-top: 50px;
+}
+
+
 
 
 
