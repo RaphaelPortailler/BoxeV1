@@ -12,7 +12,21 @@
 
             <section class="w90 margin">
                 {% for boxeur in boxeurs %}
-                    <p>{{ boxeur.nom }}</p>
+                    <article class="w45 font">
+                        {# ------------- Text Article ------------- #}
+                        <div class="paddArtBoxeAng">
+                            {# ------------- IMG Articles ------------- #}
+                            <div class="height300px">
+                                <img src="{{ asset('assets/uploads/'~boxeur.image) }}" alt="Image de {{ boxeur.nom }}"/>
+                            </div>
+                            <h2 class="center beigeChaud">{{ boxeur.prenom }} {{ boxeur.nom }}</h2>
+                            <p class="paddArtBoxeAng center">
+                                {{ boxeur.resume }}
+                            </p>
+                            {# ------------- En Savoir Plus ------------- #}
+                            <div class="center"><a id="ancreBlue" href="{{ path('show_boxeur', {id:boxeur.id}) }}">En savoir plus</a></div>
+                        </div>
+                    </article>
                 {% endfor %}
             </section>
 

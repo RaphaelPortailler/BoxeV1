@@ -51,12 +51,18 @@ class BoxeAnglaiseController extends AbstractController
 
 
     #[Route('/boxe-anglaise/superlourd', 'boxe_anglaise_superlourd')]
-    public function boxeAnglaise64(BoxeurRepository $boxeurRepository): Response
+    public function boxeAnglaise64(BoxeurRepository $boxeurRepository, CategorieRepository $categorieRepository, TypeBoxeRepository $typeBoxeRepository): Response
     {
-        $boxeur = $boxeurRepository->findAll();
+        $typeBoxe = $typeBoxeRepository->findOneById(1);
+        $category = $categorieRepository->findOneById(2);
 
+        if ($typeBoxe && $category) {
+            $boxeurs = $boxeurRepository->findByTypeAndCategory($typeBoxe, $category);
+        }
         return $this->render('guest/anglaise/anglaiseSuperLourds.html.twig', [
-            'boxeurs' => $boxeur
+            'category' => $category,
+            'boxeurs' => $boxeurs,
+            'typeBoxe' => $typeBoxe
         ]);
 
     }
@@ -76,9 +82,5 @@ class BoxeAnglaiseController extends AbstractController
             'boxeur' => $boxeurs
         ]);
     }
-
-
-
-
 }
 
