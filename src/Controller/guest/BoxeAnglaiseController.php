@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\guest;
 
+use App\Repository\CategorieRepository;
 use App\Repository\PratiqueRepository;
 use App\Repository\TypeBoxeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,12 +33,18 @@ class BoxeAnglaiseController extends AbstractController
 
 
     #[Route('/boxe-anglaise/superplumes', 'boxe_anglaise_superplumes')]
-    public function boxeAnglaise57(BoxeurRepository $boxeurRepository):Response
+    public function boxeAnglaise57(BoxeurRepository $boxeurRepository, CategorieRepository $categorieRepository, TypeBoxeRepository $typeBoxeRepository): Response
     {
-        $boxeur = $boxeurRepository->findAll();
+        $typeBoxe = $typeBoxeRepository->findOneById(1);
+        $category = $categorieRepository->findOneById(1);
 
+        if ($typeBoxe && $category) {
+            $boxeurs = $boxeurRepository->findByTypeAndCategory($typeBoxe, $category);
+        }
         return $this->render('guest/anglaise/anglaiseSuperPlumes.html.twig', [
-            'boxeurs' => $boxeur
+            'category' => $category,
+            'boxeurs' => $boxeurs,
+            'typeBoxe' => $typeBoxe
         ]);
     }
 
