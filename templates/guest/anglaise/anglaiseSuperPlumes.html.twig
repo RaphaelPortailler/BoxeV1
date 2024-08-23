@@ -12,17 +12,19 @@
 
             <section class="w90 margin">
                 {% for boxeur in boxeurs %}
-                    <article class="w45flexWrap font">
-                            {# {% for boxeur.img in boxeurs.img %} #}
-                                <div class="w90img">
-                                {# ZONE CARROUSSEL D'IMAGES #}
-                                    <img src="{{ asset('assets/img/JoshuaHeader.jpg') }}" alt="">
-                                </div>
-                            {# {% endblock %} #}
-                        <div class="padd11px">
-                            <h1 class="padd11px center beigeChaud">{{ boxeur.prenom }} {{ boxeur.nom }}</h1>
-                            <p class="center">{{ boxeur.resume }}</p>
-                            <p class="center padd11px"><a class="ancreBoxeAng" href="{{ path('show_boxeur', {id:boxeur.id}) }}">En savoir +</a></p>
+                    <article class="w45 font">
+                        {# ------------- Text Article ------------- #}
+                        <div class="paddArtBoxeAng">
+                            {# ------------- IMG Articles ------------- #}
+                            <div class="height300px">
+                                <img src="{{ asset('assets/uploads/'~boxeur.image) }}" alt="Image de {{ boxeur.nom }}"/>
+                            </div>
+                            <h2 class="center beigeChaud">{{ boxeur.prenom }} {{ boxeur.nom }}</h2>
+                            <p class="paddArtBoxeAng center">
+                                {{ boxeur.resume }}
+                            </p>
+                            {# ------------- En Savoir Plus ------------- #}
+                            <div class="center"><a id="ancreBlue" href="{{ path('show_boxeur', {id:boxeur.id}) }}">En savoir plus</a></div>
                         </div>
                     </article>
                 {% endfor %}

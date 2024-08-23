@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\guest;
 
+use App\Repository\CategorieRepository;
 use App\Repository\TypeBoxeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,23 +33,35 @@ class BoxeThailandaiseController extends AbstractController
 
 
     #[Route('/boxe-thailandaise/superplumes', 'boxe_thailandaise_superplumes')]
-    public function boxeThailandaise57(BoxeurRepository $boxeurRepository):Response
+    public function boxeThailandaise57(BoxeurRepository $boxeurRepository, CategorieRepository $categorieRepository, TypeBoxeRepository $typeBoxeRepository):Response
     {
-        $boxeur = $boxeurRepository->findAll();
+        $typeBoxe = $typeBoxeRepository->findOneById(2);
+        $category = $categorieRepository->findOneById(1);
 
+        if ($typeBoxe && $category) {
+            $boxeurs = $boxeurRepository->findByTypeAndCategory($typeBoxe, $category);
+        }
         return $this->render('guest/thailandaise/thailandaiseSuperPlumes.html.twig', [
-            'boxeurs' => $boxeur
+            'boxeurs' => $boxeurs,
+            'category' => $category,
+            'typeBoxe' => $typeBoxe
         ]);
     }
 
 
     #[Route('/boxe-thailandaise/superlourds', 'boxe_thailandaise_superlourds')]
-    public function boxeThailandaise100(BoxeurRepository $boxeurRepository):Response
+    public function boxeThailandaise100(BoxeurRepository $boxeurRepository, CategorieRepository $categorieRepository, TypeBoxeRepository $typeBoxeRepository):Response
     {
-        $boxeur = $boxeurRepository->findAll();
+        $typeBoxe = $typeBoxeRepository->findOneById(2);
+        $category = $categorieRepository->findOneById(2);
 
+        if ($typeBoxe && $category) {
+            $boxeurs = $boxeurRepository->findByTypeAndCategory($typeBoxe, $category);
+        }
         return $this->render('guest/thailandaise/thailandaiseSuperLourds.html.twig', [
-            'boxeurs' => $boxeur
+            'boxeurs' => $boxeurs,
+            'category' => $category,
+            'typeBoxe' => $typeBoxe
         ]);
     }
 

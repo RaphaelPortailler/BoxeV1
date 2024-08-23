@@ -15,11 +15,9 @@
             <section class="w90flex wrap">
                 {% for boxeur in boxeurs %}
                     <article class="w45 font">
-                        {# ------------- IMG Articles ------------- #}
-
-
                         {# ------------- Text Article ------------- #}
                         <div class="paddArtBoxeAng">
+                            {# ------------- IMG Articles ------------- #}
                             <div class="height300px">
                                 <img src="{{ asset('assets/uploads/'~boxeur.image) }}" alt="Image de {{ boxeur.nom }}"/>
                             </div>

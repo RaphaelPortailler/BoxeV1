@@ -26,14 +26,11 @@
                 <td>Nom</td>
                 <td>Prenom</td>
                 <td>Date Naissance</td>
-                <td>Résumé</td>
+                {# <td>Résumé</td> #}
                 <td>Actions</td>
             </tr>
             </thead>
-
             <tbody>
-
-
             {% for  boxeur in boxeurs %}
                 <tr>
                     <td>{{ boxeur.id }}</td>
@@ -45,7 +42,7 @@
                     <td>{{ boxeur.nom }}</td>
                     <td>{{ boxeur.prenom }}</td>
                     <td>{{ boxeur.DateNaissance | date('d-m-Y') }}</td>
-                    <td>{{ boxeur.resume }}</td>
+                    {# <td>{{ boxeur.resume }}</td> #}
                     {# <td>{{ boxeur.Pesers }}</td> #}
 
                     {# <td>{{ article.category ? article.category.title : 'sans catégorie' }}</td> #}
@@ -61,9 +58,7 @@
                             <a class="black" href="{{ path('admin_update_boxeur', {id:boxeur.id }) }}"><i class="fa-solid fa-file-pen iUpdate"></i></a>
 
                             <p class="js-admin-article-delete"><i class="fa-solid fa-trash-can"></i></p>
-
                         </div>
-
 
                         <div class="popupWrapper">
                             <div class="admin-article-popup-delete">
@@ -72,9 +67,7 @@
                                 <a href="{{ path('delete_boxeur', {id:boxeur.id}) }}">Supprimer</a>
                             </div>
                         </div>
-
                     </td>
-
                 </tr>
             {% endfor %}
             </tbody>

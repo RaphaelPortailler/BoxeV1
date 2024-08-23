@@ -44,10 +44,21 @@ a{
     object-position: top;
 }
 
+.result{
+    width: 50%;
+    display: flex;
+    margin: 0 auto;
+    background-color: #0C2D48;
+    padding: 7px;
+    justify-content: space-evenly;
+    transform: translateY(-11px);
+    border-radius: 10px;
+}
+
 
 /* ---------- HEADER ---------- */
 header{
-    height: 70vh;
+    height: 80vh;
     background-image: url(../../img/JoshuaHeader.jpg);
     background-size: cover;
     position: relative;
@@ -101,6 +112,7 @@ li:hover .ulNone{
     width: 180px;
     text-align: center;
     transform: translateY(100%);
+    z-index: 1000;
 }
 
 .paddAncre{
@@ -202,6 +214,10 @@ li:hover .ulNone{
     margin-bottom: 100px;
 }
 
+.marginTop{
+    margin-top: 50px;
+}
+
 .marginCaroussel{
     width: 45%;
     margin: 150px auto 100px auto;
@@ -282,6 +298,28 @@ button{
 .padd11px{
     padding: 11px;
 }
+
+
+/* ---------------------------------- BOXE FRANCAISE -------------------------------- */
+
+.frameGif{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    pointer-events: none;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ---------------------------------- BOXE FRANCAISE SUPERLOURD/LEGERS -------------------------------- */
+
+.heavyMarginTop{
+    margin-top: 50px;
+}
+
+
 
 
 

@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Boxeur;
+use App\Entity\Categorie;
+use App\Entity\Pratique;
 use App\Entity\TypeBoxe;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -48,6 +50,20 @@ class BoxeurRepository extends ServiceEntityRepository
             ->join('b.pratiques', 'p')
             ->andWhere('p.Type_boxe = :typeBoxe')
             ->setParameter('typeBoxe', $typeBoxe)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findByTypeAndCategory($typeBoxe, $category)
+    {
+        return $this->createQueryBuilder('b')
+            ->join('b.pratiques', 'p')
+            ->join('b.pesers', 'pe')
+            ->join('pe.Categorie', 'c')
+            ->andWhere('p.Type_boxe = :typeBoxe')
+            ->andWhere('c.id = :category')
+            ->setParameter('typeBoxe', $typeBoxe)
+            ->setParameter('category', $category)
             ->getQuery()
             ->getResult();
     }

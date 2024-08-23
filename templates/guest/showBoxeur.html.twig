@@ -15,8 +15,21 @@
                     <article class="w45 font">
 
                         {# ------------- IMG Articles ------------- #}
-                        <div>
-                            <img src="{{ asset('assets/img/JoshuaVSNgannou.jpg') }}" alt="">
+                        <div class="marginTop">
+                            <img src="{{ asset('assets/uploads/'~boxeur.image) }}" alt="image de {{ boxeur.nom }}" />
+                        </div>
+
+                        {# ------------- RESULT ------------- #}
+                        <div class="result">
+                            <p class="center">
+                                <span class="beigeChaud">W :</span> <span class="white">{{ boxeur.victoire }}</span>
+                            </p>
+                            <p class="center">
+                                <span class="beigeChaud">L :</span> <span class="white">{{ boxeur.defaite }}</span>
+                            </p>
+                            <p class="center">
+                                <span class="beigeChaud">D :</span> <span class="white">{{ boxeur.egalite }}</span>
+                            </p>
                         </div>
 
                         {# ------------- Text Article ------------- #}
@@ -24,15 +37,6 @@
                             <h2 class="center beigeChaud">{{ boxeur.prenom }} {{ boxeur.nom }}</h2>
                             <p class="paddArtBoxeAng center">
                                 {{ boxeur.description }}
-                            </p>
-                            <p class="center">
-                                <span class="beigeChaud">Victoire :</span> {{ boxeur.victoire }}
-                            </p>
-                            <p class="center">
-                                <span class="beigeChaud">Défaite :</span> {{ boxeur.defaite }}
-                            </p>
-                            <p class="center">
-                                <span class="beigeChaud">Égalité :</span> {{ boxeur.egalite }}
                             </p>
                         </div>
                     </article>

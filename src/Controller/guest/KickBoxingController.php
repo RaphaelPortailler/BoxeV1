@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\guest;
 
+use App\Repository\CategorieRepository;
 use App\Repository\TypeBoxeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,26 +33,35 @@ class KickBoxingController extends AbstractController
 
 
     #[Route('/kickboxing/superplumes', 'kickboxing_superplumes')]
-    public function kickboxing57(BoxeurRepository $boxeurRepository):Response
+    public function kickboxing57(BoxeurRepository $boxeurRepository, CategorieRepository $categorieRepository, TypeBoxeRepository $typeBoxeRepository):Response
     {
-        $boxeur = $boxeurRepository->findAll();
+        $typeBoxe = $typeBoxeRepository->findOneById(3);
+        $category = $categorieRepository->findOneById(1);
 
+        if ($typeBoxe && $category) {
+            $boxeurs = $boxeurRepository->findByTypeAndCategory($typeBoxe, $category);
+        }
         return $this->render('guest/kickboxing/kickboxingSuperPlumes.html.twig', [
-            'boxeurs' => $boxeur
+            'boxeurs' => $boxeurs,
+            'typeBoxe' => $typeBoxe,
+            'category' => $category
         ]);
     }
 
 
     #[Route('/kickboxing/superlourds', 'kickboxing_superlourds')]
-    public function kickboxing100(BoxeurRepository $boxeurRepository):Response
+    public function kickboxing100(BoxeurRepository $boxeurRepository, CategorieRepository $categorieRepository, TypeBoxeRepository $typeBoxeRepository):Response
     {
-        $boxeur = $boxeurRepository->findAll();
+        $typeBoxe = $typeBoxeRepository->findOneById(3);
+        $category = $categorieRepository->findOneById(2);
 
+        if ($typeBoxe && $category) {
+            $boxeurs = $boxeurRepository->findByTypeAndCategory($typeBoxe, $category);
+        }
         return $this->render('guest/kickboxing/kickboxingSuperLourds.html.twig', [
-            'boxeurs' => $boxeur
+            'boxeurs' => $boxeurs,
+            'typeBoxe' => $typeBoxe,
+            'category' => $category
         ]);
     }
-
-
-
 }
