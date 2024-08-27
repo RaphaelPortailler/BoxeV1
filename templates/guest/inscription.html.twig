@@ -9,36 +9,40 @@
 {# ------------- BODY ------------- #}
 
         {% block body %}
-            {{ form_start(userForm) }}
-            {# EMAIL #}
-            <div>
-                {{ form_label(userForm.Email) }}
-                {{ form_widget(userForm.Email) }}
-                {{ form_errors(userForm.Email) }}
-            </div>
-            {# PASSWORD #}
-            <div>
-                {{ form_label(userForm.password) }}
-                {{ form_widget(userForm.password) }}
-                {{ form_errors(userForm.password) }}
-            </div>
-            {# PRENOM #}
-            <div>
-                {{ form_label(userForm.Prenom) }}
-                {{ form_widget(userForm.Prenom) }}
-                {{ form_errors(userForm.Prenom) }}
-            </div>
-            {# NOM #}
-            <div>
-                {{ form_label(userForm.Nom) }}
-                {{ form_widget(userForm.Nom) }}
-                {{ form_errors(userForm.Nom) }}
-            </div>
-            {# PSEUDO #}
-            <div>
-                {{ form_label(userForm.Pseudo) }}
-                {{ form_widget(userForm.Pseudo) }}
-                {{ form_errors(userForm.Pseudo) }}
-            </div>
-            {{ form_end(userForm) }}
+            <section class="font w50">
+                <h1 class="center inscription">Inscription</h1>
+
+                {{ form_start(userForm) }}
+                {# EMAIL #}
+                <div class="padd11px">
+                    {{ form_label(userForm.Email) }}
+                    {{ form_widget(userForm.Email) }}
+                    {{ form_errors(userForm.Email) }}
+                </div>
+                {# PASSWORD #}
+                <div class="padd11px">
+                    {{ form_label(userForm.password) }}
+                    {{ form_widget(userForm.password) }}
+                    {{ form_errors(userForm.password) }}
+                </div>
+                {# PRENOM #}
+                <div class="padd11px">
+                    {{ form_label(userForm.Prenom) }}
+                    {{ form_widget(userForm.Prenom) }}
+                    {{ form_errors(userForm.Prenom) }}
+                </div>
+                {# NOM #}
+                <div class="padd11px">
+                    {{ form_label(userForm.Nom) }}
+                    {{ form_widget(userForm.Nom) }}
+                    {{ form_errors(userForm.Nom) }}
+                </div>
+                {# PSEUDO #}
+                <div class="padd11px">
+                    {{ form_label(userForm.Pseudo) }}
+                    {{ form_widget(userForm.Pseudo) }}
+                    {{ form_errors(userForm.Pseudo) }}
+                </div>
+                {{ form_end(userForm) }}
+            </section>
         {% endblock %}

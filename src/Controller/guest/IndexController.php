@@ -13,6 +13,7 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -33,7 +34,7 @@ class IndexController extends AbstractController
     // }
 
     #[Route('/', name: 'home')]
-    public function randomBoxeur(BoxeurRepository $boxeurRepository)
+    public function randomBoxeur(BoxeurRepository $boxeurRepository):Response
     {
         $boxeurs = $boxeurRepository->findAll();
         $randomBoxeurs = [];
@@ -50,7 +51,7 @@ class IndexController extends AbstractController
     }
 
     #[Route('/inscription', name: 'inscription')]
-    public function inscription(EntityManagerInterface $entityManager, Request $request, UserPasswordHasherInterface $passwordHasher)
+    public function inscription(EntityManagerInterface $entityManager, Request $request, UserPasswordHasherInterface $passwordHasher):Response
     {
         $user = new User();
 
@@ -67,12 +68,14 @@ class IndexController extends AbstractController
             $user->setRoles(['ROLE_USER']);
             $entityManager->persist($user);
             $entityManager->flush();
+            $this->addFlash('success', 'Votre compte a bien été créer');
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('guest/inscription.html.twig', [
             'userForm' => $userForm->createView()
+
         ]);
     }
 

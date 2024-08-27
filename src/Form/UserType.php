@@ -19,8 +19,9 @@ class UserType extends AbstractType
             ->add('Nom')
             ->add('Prenom')
             ->add('Email')
-            ->add('submit', SubmitType::class, [
+            ->add('submit', SubmitType::class,  [
                 'label' => 'S\'inscrire',
+                'attr' => ['class' => 'inscrire']
             ])
         ;
     }

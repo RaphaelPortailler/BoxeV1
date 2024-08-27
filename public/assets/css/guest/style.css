@@ -319,7 +319,7 @@ button{
     margin-top: 50px;
 }
 
-/* ----------------------------------  -------------------------------- */
+/* ---------------------------------- FORMULAIRE CONNEXION -------------------------------- */
 
 .margFormUser{
     margin: 20px 15px 20px 15px;
@@ -359,6 +359,28 @@ input{
 input:not(:placeholder-shown) + .label, input:focus + .label{
     transform: translateY(-30px);
 }
+/* ---------------------------------- FORMULAIRE INSCRIPTION -------------------------------- */
+
+.w50{
+    width: 50%;
+    margin: 70px auto;
+}
+
+.inscription{
+    color: #2563EB;
+}
+
+.inscrire{
+    all: unset;
+    background-color: #0C2D48;
+    border-radius: 10px;
+    padding: 7px;
+    color: white;
+    display: block;
+    margin: 30px auto 0 auto;
+}
+
+
 
 
 
