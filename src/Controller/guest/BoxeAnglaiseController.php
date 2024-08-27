@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\guest;
 
+use App\Entity\TypeBoxe;
 use App\Repository\CategorieRepository;
 use App\Repository\PratiqueRepository;
 use App\Repository\TypeBoxeRepository;
@@ -18,6 +19,7 @@ class BoxeAnglaiseController extends AbstractController
     #[Route('/boxe-anglaise', 'home_boxe_anglaise')]
     public function boxeAnglaise(BoxeurRepository $boxeurRepository, TypeBoxeRepository $typeBoxeRepository)
     {
+
         $typeBoxe = $typeBoxeRepository->findOneById(1);
 
         if ($typeBoxe) {
@@ -82,5 +84,6 @@ class BoxeAnglaiseController extends AbstractController
             'boxeur' => $boxeurs
         ]);
     }
+
 }
 

@@ -1,0 +1,44 @@
+{% extends 'guest/base.html.twig' %}
+
+{# ------------- TITRE PAGE ------------- #}
+
+    {% block title %}
+        Best's Boxer : Inscription
+    {% endblock %}
+
+{# ------------- BODY ------------- #}
+
+        {% block body %}
+            {{ form_start(userForm) }}
+            {# EMAIL #}
+            <div>
+                {{ form_label(userForm.Email) }}
+                {{ form_widget(userForm.Email) }}
+                {{ form_errors(userForm.Email) }}
+            </div>
+            {# PASSWORD #}
+            <div>
+                {{ form_label(userForm.password) }}
+                {{ form_widget(userForm.password) }}
+                {{ form_errors(userForm.password) }}
+            </div>
+            {# PRENOM #}
+            <div>
+                {{ form_label(userForm.Prenom) }}
+                {{ form_widget(userForm.Prenom) }}
+                {{ form_errors(userForm.Prenom) }}
+            </div>
+            {# NOM #}
+            <div>
+                {{ form_label(userForm.Nom) }}
+                {{ form_widget(userForm.Nom) }}
+                {{ form_errors(userForm.Nom) }}
+            </div>
+            {# PSEUDO #}
+            <div>
+                {{ form_label(userForm.Pseudo) }}
+                {{ form_widget(userForm.Pseudo) }}
+                {{ form_errors(userForm.Pseudo) }}
+            </div>
+            {{ form_end(userForm) }}
+        {% endblock %}
