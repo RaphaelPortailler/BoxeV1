@@ -3,7 +3,7 @@
 {% block title %}Admin : Login{% endblock %}
 
 {% block body %}
-    <form method="post">
+    <form method="post" action="{{ path('app_admin_login') }}">
         {% if error %}
             <div class="alert alert-danger">Pseudo ou Mot de passe incorrects</div>
         {% endif %}

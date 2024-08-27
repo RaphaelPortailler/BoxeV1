@@ -64,6 +64,13 @@
                         </ul>
                     </i>
                 </li>
+                {% if app.user %}
+                <li><a href="">Bonjour, {{ app.user.pseudo }}</a>
+                    <ul class="ulNone">
+                        <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+                    </ul>
+                </li>
+                {% else %}
                 <li id="button" class="padd10px">
                     <a id="ancreLightBlue" href="{{ path('app_login') }}">Inscription/Connexion</a>
                 </li>
