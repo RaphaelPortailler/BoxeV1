@@ -7,16 +7,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminAccueilController extends AbstractController
 {
-
     #[Route('/admin/accueil', 'admin_acceuil')]
     public function accueil()
     {
         return $this->render('admin/accueil.html.twig');
     }
-
-
-
-
-
-
 }

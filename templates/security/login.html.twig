@@ -5,12 +5,9 @@
 {% block body %}
     <section class="flex font marginBot marginTop">
         <form method="post" action="{{ path('app_login') }}">
-
-
             {% if error %}
                 <div class="alert alert-danger">Pseudo ou Mot de passe incorrects</div>
             {% endif %}
-
             {# {% if app.user %}
                 <div class="mb-3">
                     You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
