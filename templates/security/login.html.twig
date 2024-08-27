@@ -21,11 +21,11 @@
             <div class="formAdmin flex">
                 <div class="padd10px inputWrapper">
                     <input placeholder=" " type="text" value="" name="_username" id="username" class="form-control" autocomplete="username" required autofocus>
-                    <label for="username">Pseudo</label>
+                    <label class="label" for="username">Pseudo</label>
                 </div>
                 <div class="padd10px inputWrapper">
                     <input placeholder=" " type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
-                    <label for="password">Mot de Passe</label>
+                    <label class="label" for="password">Mot de Passe</label>
                 </div>
 
                 <input type="hidden" name="_csrf_token"
@@ -49,4 +49,7 @@
             </div>
         </form>
     </section>
+    <div class="flex padd10px font">
+        <a class="ancreBoxeAng" href="{{ path('inscription') }}">Vous n'avez pas de compte ? Inscrivez-vous.</a>
+    </div>
 {% endblock %}

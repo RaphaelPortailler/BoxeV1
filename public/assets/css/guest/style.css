@@ -338,12 +338,12 @@ button{
     margin:50px 0;
 }
 
-input, label{
+input, .label{
     display: block;
     width:100%;
 }
 
-label{
+.label{
     position: absolute;
     top:0;
     left:30px;
@@ -356,7 +356,7 @@ input{
     background-color: transparent;
 }
 
-input:not(:placeholder-shown) + label, input:focus + label{
+input:not(:placeholder-shown) + .label, input:focus + .label{
     transform: translateY(-30px);
 }
 
