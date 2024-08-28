@@ -8,13 +8,11 @@
     {% endblock %}
 
 
-
 {% block body %}
-
         <h1 class="center paddH1Admin">Les Users </h1>
 
         <div id="add">
-            <a class="black" href="">Ajouter un Utilisateurs <i class="fa-solid fa-person-circle-plus addBoxeur"></i></a>
+            <a class="black" href="{{ path('admin_insert_user') }}">Ajouter un Utilisateurs <i class="fa-solid fa-person-circle-plus addBoxeur"></i></a>
         </div>
     <section>
         <table id="myTable">
@@ -38,7 +36,7 @@
                     {# <td>{{ user.dateInscription | date('d-m-Y') }}</td> #}
                     <td>
                         <div class="update">
-                            <a class="black" href=""><i class="fa-solid fa-file-pen iUpdate"></i></a>
+                            <a class="black" href="{{ path('update_user', {id:user.id}) }}"><i class="fa-solid fa-file-pen iUpdate"></i></a>
 
                             <p class="js-admin-article-delete"><i class="fa-solid fa-trash-can"></i></p>
                         </div>

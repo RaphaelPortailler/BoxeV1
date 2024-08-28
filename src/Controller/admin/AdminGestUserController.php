@@ -40,16 +40,14 @@ class AdminGestUserController extends AbstractController
 
         $userForm->handleRequest($request);
 
-        //if ($userForm->isSubmitted() && $userForm->isValid()) {
-        //            // $boxeur->setUpdatedAt(new \DateTime('NOW'));
-        //
-        //            }
+        if ($userForm->isSubmitted() && $userForm->isValid()) {
+            // $boxeur->setUpdatedAt(new \DateTime('NOW'));
 
             $entityManager->persist($user);
             $entityManager->flush();
 
             $this->addFlash('success', 'User Créer');
-
+        }
 
         $userCreateFormView = $userForm->createView();
 
@@ -85,6 +83,33 @@ class AdminGestUserController extends AbstractController
         }
 
         return $this->redirectToRoute('');
+    }
+
+
+    #[Route('/admin/user/update/{id}', name: 'update_user')]
+    public function updateUser(int $id, UserRepository $userRepository , Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $user = $userRepository->find($id);
+
+        $userForm = $this->createForm(UserType::class, $user);
+
+        $userForm->handleRequest($request);
+
+        if ($userForm->isSubmitted() && $userForm->isValid())
+        {
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'User modifier');
+        }
+
+        $userCreateFormView = $userForm->createView();
+
+        return $this->render('admin/updateUser.html.twig', [
+            'userForm' => $userCreateFormView
+        ]);
+
     }
 
 
