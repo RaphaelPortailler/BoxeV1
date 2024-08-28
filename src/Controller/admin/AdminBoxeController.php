@@ -95,6 +95,9 @@ class AdminBoxeController extends AbstractController
     {
         $boxeur = $boxeurRepository->find($id);
 
+        // Sauvegarder le nom de l'image existante avant de traiter le formulaire
+        $existingImage = $boxeur->getImage();
+
         $boxeurForm = $this->createForm(BoxeurType::class, $boxeur);
 
         $boxeurForm->handleRequest($request);
@@ -104,7 +107,7 @@ class AdminBoxeController extends AbstractController
             // récupérer le nom du fichier
             $imageFile = $boxeurForm->get('image')->getData();
 
-            // si il y a bien un fichier envoyé
+            // si il y a bien une image envoyé
             if ($imageFile)
             {
                 // je récupère son nom
@@ -130,7 +133,14 @@ class AdminBoxeController extends AbstractController
 
                 // je stocke dans la propriété image de l'entité article le nom du fichier
                 $boxeur->setImage($newFilename);
+
+            // Mettre à jour l'image avec le nouveau nom
+            $boxeur->setImage($newFilename);
+            } else {
+            // Si aucun fichier n'est uploadé, conserver l'image existante
+            $boxeur->setImage($existingImage);
             }
+
             $entityManager->persist($boxeur);
             $entityManager->flush();
 

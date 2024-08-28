@@ -1,47 +1,52 @@
-{% extends 'admin/base.html.twig' %}
+{% extends 'guest/base.html.twig' %}
 
-{% block title %}Admin : Login{% endblock %}
+{% block title %}Best's Boxer : Login{% endblock %}
 
 {% block body %}
-    <form method="post">
-        {% if error %}
-            <div class="alert alert-danger">Pseudo ou Mot de passe incorrects</div>
-        {% endif %}
+    <section class="flex font marginBot marginTop">
+        <form method="post" action="{{ path('app_login') }}">
+            {% if error %}
+                <div class="alert alert-danger">Pseudo ou Mot de passe incorrects</div>
+            {% endif %}
+            {# {% if app.user %}
+                <div class="mb-3">
+                    You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %} #}
 
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                <h1 class="h3 mb-3 font-weight-normal h1FormLog center padd10px">Merci de vous connectez.</h1>
+            <div class="formAdmin flex">
+                <div class="padd10px inputWrapper">
+                    <input placeholder=" " type="text" value="" name="_username" id="username" class="form-control" autocomplete="username" required autofocus>
+                    <label class="label" for="username">Pseudo</label>
+                </div>
+                <div class="padd10px inputWrapper">
+                    <input placeholder=" " type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+                    <label class="label" for="password">Mot de Passe</label>
+                </div>
+
+                <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+                >
+
+            {#
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
+
+                <div class="checkbox mb-3">
+                    <input type="checkbox" name="_remember_me" id="_remember_me">
+                    <label for="_remember_me">Remember me</label>
+                </div>
+            #}
             </div>
-        {% endif %}
-
-            <h1 class="h3 mb-3 font-weight-normal h1FormLog">Merci de vous connectez afin d'acceder a la partie Admin.</h1>
-        <div class="formAdmin">
-            <div>
-                <label for="username">Pseudo</label>
-                <input type="text" value="" name="_username" id="username" class="form-control" autocomplete="username" required autofocus>
+            <div class="flex padd10px">
+                <button class="btn btn-lg btn-primary btnConnexion connexionUser" type="submit">
+                    Connexion
+                </button>
             </div>
-            <div>
-                <label for="password">Mot de Passe</label>
-                <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
-            </div>
-
-            <input type="hidden" name="_csrf_token"
-               value="{{ csrf_token('authenticate') }}"
-            >
-
-        {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
-
-            <div class="checkbox mb-3">
-                <input type="checkbox" name="_remember_me" id="_remember_me">
-                <label for="_remember_me">Remember me</label>
-            </div>
-        #}
-
-            <button class="btn btn-lg btn-primary btnConnexion" type="submit">
-                Connexion
-            </button>
-        </div>
-    </form>
+        </form>
+    </section>
+    <div class="flex padd10px font">
+        <a class="ancreBoxeAng" href="{{ path('inscription') }}">Vous n'avez pas de compte ? Inscrivez-vous.</a>
+    </div>
 {% endblock %}

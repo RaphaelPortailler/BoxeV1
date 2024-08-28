@@ -41,7 +41,7 @@ class TypeBoxeRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    public function findOneById(int $id): ?TypeBoxe
+    public function findOneById(?int $id = null): ?TypeBoxe
     {
         return $this->findOneBy(['id' => $id]);
     }

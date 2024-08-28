@@ -64,9 +64,17 @@
                         </ul>
                     </i>
                 </li>
-                <li id="button" class="padd10px">
-                    <a id="ancreLightBlue" href="">Inscription/Connexion</a>
+                {% if app.user %}
+                <li><a href="">Bonjour, {{ app.user.pseudo }}</a>
+                    <ul class="ulNone">
+                        <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+                    </ul>
                 </li>
+                {% else %}
+                <li id="button" class="padd10px">
+                    <a id="ancreLightBlue" href="{{ path('app_login') }}">Inscription/Connexion</a>
+                </li>
+                {% endif %}
             </ul>
         </nav>
     </header>
@@ -75,6 +83,11 @@
 
     {# ---------- MAIN ---------- #}
     <main>
+        {% for flash_message in app.session.flashbag.get('success') %}
+            <div class="alert alert-success">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
         {% block body %}
 
         {% endblock %}

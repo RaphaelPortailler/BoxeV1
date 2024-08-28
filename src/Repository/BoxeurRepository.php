@@ -68,3 +68,4 @@ class BoxeurRepository extends ServiceEntityRepository
             ->getResult();
     }
 }
+

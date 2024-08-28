@@ -15,7 +15,8 @@ class BoxeurType extends AbstractType
     {
         $builder
             ->add('image', FileType::class, [
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
             ])
             ->add('Nom')
             ->add('Prenom')

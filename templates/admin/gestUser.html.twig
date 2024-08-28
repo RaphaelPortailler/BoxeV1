@@ -1,0 +1,62 @@
+{% extends 'admin/base.html.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.dataTables.min.css">
+{% endblock %}
+
+    {% block title %}
+        Admin : Les Users
+    {% endblock %}
+
+
+{% block body %}
+        <h1 class="center paddH1Admin">Les Users </h1>
+
+        <div id="add">
+            <a class="black" href="{{ path('admin_insert_user') }}">Ajouter un Utilisateurs <i class="fa-solid fa-person-circle-plus addBoxeur"></i></a>
+        </div>
+    <section>
+        <table id="myTable">
+            <thead>
+            <tr>
+                <td>Id</td>
+                <td>Pseudo</td>
+                <td>Nom</td>
+                <td>Prenom</td>
+                {# <td>Date Inscription</td> #}
+                <td>Actions</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.pseudo }}</td>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.prenom }}</td>
+                    {# <td>{{ user.dateInscription | date('d-m-Y') }}</td> #}
+                    <td>
+                        <div class="update">
+                            <a class="black" href="{{ path('update_user', {id:user.id}) }}"><i class="fa-solid fa-file-pen iUpdate"></i></a>
+
+                            <p class="js-admin-article-delete"><i class="fa-solid fa-trash-can"></i></p>
+                        </div>
+
+                        <div class="popupWrapper">
+                            <div class="admin-article-popup-delete">
+                                <p>Voulez vous vraiment supprimer ?</p>
+
+                                <a href="{{ path('delete_user', {id:user.id}) }}">Supprimer</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}
+{% block javascript %}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/2.1.4/js/dataTables.min.js"></script>
+
+{% endblock %}

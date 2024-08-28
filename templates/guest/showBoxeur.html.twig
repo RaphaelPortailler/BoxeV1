@@ -10,15 +10,11 @@
 
         {% block body %}
             <section class="w90flex wrap">
-
-                    {# ------------- First Article ------------- #}
                     <article class="w45 font">
-
                         {# ------------- IMG Articles ------------- #}
                         <div class="marginTop">
                             <img src="{{ asset('assets/uploads/'~boxeur.image) }}" alt="image de {{ boxeur.nom }}" />
                         </div>
-
                         {# ------------- RESULT ------------- #}
                         <div class="result">
                             <p class="center">
@@ -31,7 +27,6 @@
                                 <span class="beigeChaud">D :</span> <span class="white">{{ boxeur.egalite }}</span>
                             </p>
                         </div>
-
                         {# ------------- Text Article ------------- #}
                         <div class="paddArtBoxeAng">
                             <h2 class="center beigeChaud">{{ boxeur.prenom }} {{ boxeur.nom }}</h2>
