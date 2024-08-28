@@ -18,8 +18,8 @@ const deleteArticleButtons = document.querySelectorAll('.js-admin-article-delete
 
    // });
 let dataTable = new DataTable('#myTable');
-
+console.log(dataTable)
 dataTable.on('click', 'tbody tr .js-admin-article-delete', function () {
-
+    console.log('test')
     this.closest('td').querySelector('.popupWrapper').style.display = "block"
 });

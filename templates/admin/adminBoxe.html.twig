@@ -79,5 +79,8 @@
 <script src="https://cdn.datatables.net/2.1.4/js/dataTables.min.js"></script>
 <script >
     let table = new DataTable('#myTable');
+    dataTable.on('click', 'tbody tr .js-admin-article-delete', function () {
+        this.closest('td').querySelector('.popupWrapper').style.display = "block"
+});
 </script>
 {% endblock %}

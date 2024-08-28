@@ -17,7 +17,7 @@
             <a class="black" href="">Ajouter un Utilisateurs <i class="fa-solid fa-person-circle-plus addBoxeur"></i></a>
         </div>
     <section>
-        <table>
+        <table id="myTable">
             <thead>
             <tr>
                 <td>Id</td>
@@ -47,7 +47,7 @@
                             <div class="admin-article-popup-delete">
                                 <p>Voulez vous vraiment supprimer ?</p>
 
-                                <a href="">Supprimer</a>
+                                <a href="{{ path('delete_user', {id:user.id}) }}">Supprimer</a>
                             </div>
                         </div>
                     </td>
@@ -56,4 +56,9 @@
             </tbody>
         </table>
     </section>
+{% endblock %}
+{% block javascript %}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/2.1.4/js/dataTables.min.js"></script>
+
 {% endblock %}
