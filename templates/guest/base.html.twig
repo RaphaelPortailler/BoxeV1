@@ -84,7 +84,7 @@
     {# ---------- MAIN ---------- #}
     <main>
         {% for flash_message in app.session.flashbag.get('success') %}
-            <div class="alert alert-success">
+            <div class="alert alert-success messFLash font">
                 {{ flash_message }}
             </div>
         {% endfor %}

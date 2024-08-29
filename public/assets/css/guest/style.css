@@ -381,6 +381,19 @@ input:not(:placeholder-shown) + .label, input:focus + .label{
 }
 
 
+/* ---------------------------------- MESSAGE FLASH -------------------------------- */
+
+.messFLash{
+    width: 30%;
+    margin: 15px auto;
+    color: #0C2D48;
+    border-radius: 10px;
+    text-align: center;
+    padding: 7px;
+}
+
+
+
 
 
 
