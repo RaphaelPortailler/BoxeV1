@@ -37,16 +37,22 @@
                     </article>
             </section>
 
-            <section class="font w70">
-            <h3 class="center padd10px beigeChaud">Commentaires</h3>
+            <section class="font w50">
+            <h3 class="center padd10px beigeChaud littleMarginBot fontSize">Commentaires</h3>
 
             {# Liste des commentaires #}
             {% if commentaires is not empty %}
                 <div>
                     {% for commentaire in commentaires %}
-                        <div class="flex padd11px">
-                            <p><span class="spanComment">{{ commentaire.user.Pseudo }} le {{ commentaire.dateCommentaire|date('d/m/Y H:i') }} :</span></p> <p>{{ commentaire.contenu }}</p>
+                        <div class="flexComment">
+                            <div class="w30 padd10px">
+                                <p><span class="spanComment">{{ commentaire.user.Pseudo }}</span></p><p class="littleCarac">le {{ commentaire.dateCommentaire|date('d/m/Y H:i') }} :</p>
+                            </div>
+                            <div class="w70 padd10px">
+                                <p>{{ commentaire.contenu }}</p>
+                            </div>
                         </div>
+                        <hr>
                     {% endfor %}
                 </div>
             {% else %}
@@ -54,7 +60,7 @@
             {% endif %}
 
             {# Formulaire de commentaire #}
-            <h3 class="center padd10px beigeChaud">Ajouter un commentaire</h3>
+            <h3 class="center padd10px beigeChaud heavyMarginTop fontSize">Ajouter un commentaire</h3>
             {% if app.user %}
                 <div class="center littleMarginBot">
                     {{ form_start(form) }}
@@ -63,7 +69,7 @@
                     {{ form_end(form) }}
                 </div>
             {% else %}
-                <p class="center">Veuillez vous connecté afin d'ajouter un commentaire.</p>
+                <p class="center padd10px">Veuillez vous connecté afin d'ajouter un commentaire.</p>
             {% endif %}
             </section>
 
