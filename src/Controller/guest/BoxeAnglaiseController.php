@@ -4,12 +4,17 @@ declare(strict_types=1);
 
 namespace App\Controller\guest;
 
+use App\Entity\Commentaire;
 use App\Entity\TypeBoxe;
+use App\Form\CommentaireType;
 use App\Repository\CategorieRepository;
+use App\Repository\CommentaireRepository;
 use App\Repository\PratiqueRepository;
 use App\Repository\TypeBoxeRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\BoxeurRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -71,17 +76,43 @@ class BoxeAnglaiseController extends AbstractController
 
 
     #[Route('/show-boxeur/{id}', name: 'show_boxeur')]
-    public function showBoxeur(int $id, BoxeurRepository $boxeurRepository ):Response
+    public function showBoxeur(int $id, BoxeurRepository $boxeurRepository,Request $request, EntityManagerInterface $entityManager,CommentaireRepository $commentaireRepository):Response
     {
-        $boxeurs = $boxeurRepository->find($id);
+        $boxeur = $boxeurRepository->find($id);
 
-        if (!$boxeurs) {
+        if (!$boxeur) {
             $html404 = $this->renderView('guest/404.html.twig');
             return new Response($html404, 404);
         }
 
+        // Récupérer l'utilisateur connecté
+        $user = $this->getUser();
+
+        $commentaire = new Commentaire();
+        $commentaire->setBoxeur($boxeur);
+        $commentaire->setUser($user);
+        $commentaire->setDateCommentaire(new \DateTime());
+
+        // Créer le formulaire de commentaire
+        $form = $this->createForm(CommentaireType::class, $commentaire);
+        $form->handleRequest($request);
+
+        // Si le formulaire est soumis et valide
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $entityManager->persist($commentaire);
+            $entityManager->flush();
+
+            // Redirection pour éviter la double soumission
+            return $this->redirectToRoute('show_boxeur', ['id' => $boxeur->getId()]);
+        }
+
+        $commentaires = $commentaireRepository->findBy(['Boxeur' => $boxeur]);
+
         return $this->render('guest/showBoxeur.html.twig', [
-            'boxeur' => $boxeurs
+            'boxeur' => $boxeur,
+            'commentaires' => $commentaires,
+            'form' => $form->createView()
         ]);
     }
 

@@ -87,7 +87,7 @@ class AdminGestUserController extends AbstractController
             ]);
         }
 
-        return $this->redirectToRoute('');
+        return $this->redirectToRoute('admin_gestion_user');
     }
 
 

@@ -18,15 +18,6 @@ class CommentaireType extends AbstractType
     {
         $builder
             ->add('Contenu')
-
-            ->add('Boxeur', EntityType::class, [
-                'class' => Boxeur::class,
-                'choice_label' => 'id',
-            ])
-            ->add('User', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'id',
-            ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Poster',
             ])
