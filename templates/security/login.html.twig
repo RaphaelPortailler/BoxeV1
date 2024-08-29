@@ -4,7 +4,7 @@
 
 {% block body %}
     <section class="flex font marginBot marginTop">
-        <form method="post" action="{{ path('app_login') }}">
+        <form method="post" action="{{ path('app_login') }}" class="shadowForm">
             {% if error %}
                 <div class="alert alert-danger">Pseudo ou Mot de passe incorrects</div>
             {% endif %}
