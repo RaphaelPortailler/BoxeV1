@@ -60,4 +60,27 @@ class AdminGestCommentController extends AbstractController
         ]);
     }
 
+    #[Route('/admin/gest-comment/delete/{id}', name: 'admin_delete_comments')]
+    public function deleteComment(int $id, CommentaireRepository $commentaireRepository, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $comment = $commentaireRepository->find($id);
+
+        if (!$comment) {
+            $html = $this->renderView('admin/404.html.twig');
+            return new Response($html, 404);
+        }
+
+        try{
+            $entityManager->remove($comment);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Commentaire bien supprimé');
+        } catch(\Exception $exception){
+            return $this->render('admin/error.html.twig', [
+                'error' => $exception->getMessage()
+            ]);
+        }
+
+        return $this->redirectToRoute('admin_gestion_comments');
+    }
 }
