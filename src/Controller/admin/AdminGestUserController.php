@@ -9,6 +9,7 @@ use App\Form\UserType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -32,7 +33,7 @@ class AdminGestUserController extends AbstractController
 
 
     #[Route('/admin/gest-user/insert', 'admin_insert_user')]
-    public function insertUser(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger, ParameterBagInterface $params): Response
+    public function insertUser(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
     {
         $user = new User();
 
@@ -42,6 +43,10 @@ class AdminGestUserController extends AbstractController
 
         if ($userForm->isSubmitted() && $userForm->isValid()) {
             // $boxeur->setUpdatedAt(new \DateTime('NOW'));
+
+            $clearPassword = $user->getPassword();
+            $hashedPassword = $passwordHasher->hashPassword($user, $clearPassword);
+            $user->setPassword($hashedPassword);
 
             $entityManager->persist($user);
             $entityManager->flush();
