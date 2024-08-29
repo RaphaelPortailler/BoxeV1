@@ -37,33 +37,33 @@
                     </article>
             </section>
 
-            <section>
-            <h3>Commentaires</h3>
+            <section class="font w70">
+            <h3 class="center padd10px beigeChaud">Commentaires</h3>
 
             {# Liste des commentaires #}
             {% if commentaires is not empty %}
-                <ul>
+                <div>
                     {% for commentaire in commentaires %}
-                        <li>
-                            <strong>{{ commentaire.user.Pseudo }}</strong> le {{ commentaire.dateCommentaire|date('d/m/Y H:i') }} :
-                            <p>{{ commentaire.contenu }}</p>
-                        </li>
+                        <div class="flex padd11px">
+                            <p><span class="spanComment">{{ commentaire.user.Pseudo }} le {{ commentaire.dateCommentaire|date('d/m/Y H:i') }} :</span></p> <p>{{ commentaire.contenu }}</p>
+                        </div>
                     {% endfor %}
-                </ul>
+                </div>
             {% else %}
-                <p>Il n'y a pas encore de commentaires.</p>
+                <p class="center">Il n'y a pas encore de commentaires sur ce boxeur.</p>
             {% endif %}
 
             {# Formulaire de commentaire #}
-            <h3>Ajouter un commentaire</h3>
-
+            <h3 class="center padd10px beigeChaud">Ajouter un commentaire</h3>
             {% if app.user %}
-                {{ form_start(form) }}
-                {{ form_row(form.Contenu) }}
-                {{ form_row(form.submit) }}
-                {{ form_end(form) }}
+                <div class="center littleMarginBot">
+                    {{ form_start(form) }}
+                    {{ form_row(form.Contenu, {'label': false}) }}
+                    {{ form_row(form.submit) }}
+                    {{ form_end(form) }}
+                </div>
             {% else %}
-                <p>Vous devez être connecté pour ajouter un commentaire.</p>
+                <p class="center">Veuillez vous connecté afin d'ajouter un commentaire.</p>
             {% endif %}
             </section>
 

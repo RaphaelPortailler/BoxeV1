@@ -399,6 +399,20 @@ input:not(:placeholder-shown) + .label, input:focus + .label{
     padding: 30px;
 }
 
+/* ---------------------------------- COMMENTAIRES -------------------------------- */
+
+.spanComment{
+    font-weight: bold;
+}
+
+.posterComment{
+    all: unset;
+    background-color: #0C2D48;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+}
+
 
 
 

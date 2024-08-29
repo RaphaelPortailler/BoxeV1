@@ -109,6 +109,8 @@ class BoxeAnglaiseController extends AbstractController
 
         $commentaires = $commentaireRepository->findBy(['Boxeur' => $boxeur]);
 
+
+
         return $this->render('guest/showBoxeur.html.twig', [
             'boxeur' => $boxeur,
             'commentaires' => $commentaires,
