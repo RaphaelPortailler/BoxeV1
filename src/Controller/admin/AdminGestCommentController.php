@@ -70,12 +70,12 @@ class AdminGestCommentController extends AbstractController
             return new Response($html, 404);
         }
 
-        try{
+        try {
             $entityManager->remove($comment);
             $entityManager->flush();
 
             $this->addFlash('success', 'Commentaire bien supprimé');
-        } catch(\Exception $exception){
+        } catch (\Exception $exception) {
             return $this->render('admin/error.html.twig', [
                 'error' => $exception->getMessage()
             ]);
@@ -83,4 +83,30 @@ class AdminGestCommentController extends AbstractController
 
         return $this->redirectToRoute('admin_gestion_comments');
     }
+
+    #[Route('/admin/gest-comment/update/{id}', name: 'admin_update_comments')]
+    public function updateComments(int $id, CommentaireRepository $commentaireRepository, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $comment = $commentaireRepository->find($id);
+
+        $commentForm = $this->createForm(CommentaireType::class, $comment);
+
+        $commentForm->handleRequest($request);
+
+        if ($commentForm->isSubmitted() && $commentForm->isValid()) {
+
+            $entityManager->persist($comment);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Commentaire modifier');
+        }
+
+        $commentCreateFormView = $commentForm->createView();
+
+        return $this->render('admin/updateComment.html.twig', [
+            'commentForm' => $commentCreateFormView
+        ]);
+    }
+
+
 }
