@@ -20,6 +20,7 @@ class CommentaireType extends AbstractType
             ->add('Contenu')
             ->add('submit', SubmitType::class, [
                 'label' => 'Poster',
+                'attr' => ['class' => 'posterComment']
             ])
         ;
     }

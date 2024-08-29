@@ -399,6 +399,50 @@ input:not(:placeholder-shown) + .label, input:focus + .label{
     padding: 30px;
 }
 
+/* ---------------------------------- COMMENTAIRES -------------------------------- */
+
+.spanComment{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.posterComment{
+    all: unset;
+    background-color: #0C2D48;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.flexCol{
+    display: flex;
+    flex-direction: column;
+}
+
+.flexComment{
+    display: flex;
+    padding: 5px;
+    width: 100%;
+}
+
+.w30{
+    width: 30%;
+}
+
+.w70{
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+
+.littleCarac{
+    font-size: 12px;
+}
+
+.fontSize{
+    font-size: 25px;
+}
+
 
 
 
