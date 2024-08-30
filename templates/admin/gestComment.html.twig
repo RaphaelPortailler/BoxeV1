@@ -20,6 +20,7 @@
             <thead>
             <tr>
                 <td>Id</td>
+                <td>Pseudo User</td>
                 <td>Contenu</td>
                 <td>Date Commentaire</td>
                 <td>Actions</td>
@@ -29,8 +30,9 @@
             {% for commentaire in commentaires %}
                 <tr>
                     <td>{{ commentaire.id }}</td>
+                    <td>{{ commentaire.user.pseudo }}</td>
                     <td>{{ commentaire.contenu }}</td>
-                    <td>{{ commentaire.DateCommentaire | date('d-m-Y') }}</td> }
+                    <td>{{ commentaire.DateCommentaire | date('d-m-Y') }}</td>
                     <td>
                         <div class="update">
                             <a class="black" href="{{ path('admin_update_comments', {id:commentaire.id}) }}"><i class="fa-solid fa-file-pen iUpdate"></i></a>

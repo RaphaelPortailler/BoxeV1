@@ -426,7 +426,8 @@ input:not(:placeholder-shown) + .label, input:focus + .label{
 }
 
 .w30{
-    width: 30%;
+    width: 20%;
+    background-color: rgba(225, 225, 225, 0.55);
 }
 
 .w70{
