@@ -18,6 +18,7 @@ class CommentaireType extends AbstractType
     {
         $builder
             ->add('Contenu')
+
             ->add('submit', SubmitType::class, [
                 'label' => 'Poster',
                 'attr' => ['class' => 'posterComment']
