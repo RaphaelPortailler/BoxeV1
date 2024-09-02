@@ -42,8 +42,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $Email = null;
 
-    //#[ORM\Column(type: 'string', length: 255, nullable: true)]
-    //private ?string $resetToken = null;
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private ?string $resetToken = null;
 
     /**
      * @var Collection<int, Commentaire>
@@ -167,17 +167,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    //public function getResetToken(): ?string
-    //{
-        //return $this->resetToken;
-    //}
+    public function getResetToken(): ?string
+    {
+        return $this->resetToken;
+    }
 
-    //public function setResetToken(?string $resetToken): self
-    //{
-        //$this->resetToken = $resetToken;
+    public function setResetToken(?string $resetToken): self
+    {
+        $this->resetToken = $resetToken;
 
-        //return $this;
-    //}
+        return $this;
+    }
 
     /**
      * @return Collection<int, Commentaire>
