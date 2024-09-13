@@ -2,6 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Raphael Portailler">
+        <meta name="description" content="Site sur les meilleurs boxeurs">
         <title>{% block title %}{% endblock %}</title>
         <link rel="icon" href="">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" >
@@ -19,6 +22,9 @@
     {# ---------- HEADER ---------- #}
     <header>
         <nav id="navHeader" class="font">
+            <div class="none">
+                <img src="{{ asset('assets/img/JoshuaHeader.jpg') }}" alt="Photo Anthony Joshua">
+            </div>
             <ul id="ulHeader">
                 {# ACCEUIL #}
                 <li>
@@ -76,6 +82,14 @@
                 </li>
                 {% endif %}
             </ul>
+            {# MENU HAMBURGER #}
+            <div class="burger">
+                <ul class="menuBurger">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -121,6 +135,7 @@
             </ul>
         </nav>
     </footer>
+    <script src="{{ asset('assets/js/burgerNav.js') }}"></script>
     {% block javascript %}
     {% endblock %}
     </body>
