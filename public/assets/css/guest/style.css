@@ -59,6 +59,9 @@ a{
     border-radius: 10px;
 }
 
+.first-password{
+    margin-bottom: 15px;
+}
 
 /* ---------- HEADER ---------- */
 header{
@@ -455,10 +458,18 @@ input:not(:placeholder-shown) + .label, input:focus + .label{
 
 /* ---------------------------------- RESPONSIVE TABLETTE PORTRAIT -------------------------------- */
 
-@media screen and (min-width:780px) and (max-width:1024px) {
+@media screen and (min-width:768px) and (max-width:1024px) {
     header{
         background-position: center;
         height: 50vh;
+    }
+
+    #navHeader li{
+        font-size: 12px;
+    }
+
+    .w30{
+        width: 30%;
     }
 
     .shadow{
@@ -502,7 +513,17 @@ input:not(:placeholder-shown) + .label, input:focus + .label{
     }
 
     .owl-carousel img{
-        height: 200px;
+        height: 300px;
+        object-position: top;
+    }
+
+    #ulFooter{
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .marginCaroussel{
+        width: 70%;
     }
 
 }
@@ -513,6 +534,18 @@ input:not(:placeholder-shown) + .label, input:focus + .label{
     header{
         background-image: none;
         height: 5vh;
+    }
+
+    .marginCaroussel{
+        width: 70%;
+    }
+
+    .w50{
+        width: 90%;
+    }
+
+    .w30{
+        width: 30%;
     }
 
     #navHeader{
@@ -536,6 +569,10 @@ input:not(:placeholder-shown) + .label, input:focus + .label{
     .w48{
         width: 100%;
         background-color: #0C2D48;
+    }
+
+    .w45{
+        width: 85%;
     }
 
     .DivImgArticles{
@@ -562,7 +599,8 @@ input:not(:placeholder-shown) + .label, input:focus + .label{
     }
 
     .owl-carousel img{
-        height: 150px;
+        height: 200px;
+        object-position: top;
     }
 
     #titleHome{
@@ -633,6 +671,11 @@ input:not(:placeholder-shown) + .label, input:focus + .label{
         justify-content: space-between;
         flex-direction: column;
         min-height: 100vh;
+    }
+
+    #ulFooter{
+        flex-direction: column;
+        gap: 5px;
     }
 
 }
