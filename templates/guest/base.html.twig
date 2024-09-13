@@ -71,7 +71,8 @@
                     </i>
                 </li>
                 {% if app.user %}
-                <li><a href="">Bonjour, {{ app.user.pseudo }}</a>
+                <li>
+                    <a href="">Bonjour, {{ app.user.pseudo }}</a>
                     <ul class="ulNone">
                         <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
                     </ul>
