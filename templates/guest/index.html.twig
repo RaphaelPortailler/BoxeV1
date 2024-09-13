@@ -25,15 +25,15 @@
             <section class="w78 font">
                 <div>
                     {% if randomBoxeurs is not empty %}
-                    <div>
+                    <div class="Tablette">
                         {% for boxeur in randomBoxeurs %}
-                            <article class="paddArticles flex littleMarginBot">
+                            <article class="paddArticles flex littleMarginBot w48">
                                 <div class="DivImgArticles">
                                     <img src="{{ asset('assets/uploads/'~boxeur.image) }}" alt="Image de {{ boxeur.nom }}"/>
                                 </div>
                                 {# ------------- Text Article ------------- #}
                                 <div class="flex2 bcgBlue paddArticles shadow translate radius">
-                                    <h2 class="white center paddArticles10px">{{ boxeur.prenom }} {{ boxeur.nom }}</h2>
+                                    <h2 class="nameBox white center paddArticles10px">{{ boxeur.prenom }} {{ boxeur.nom }}</h2>
                                     <p class="white paddArticles10px">
                                         {{ boxeur.resume }}
                                     </p>
@@ -62,7 +62,18 @@
                     autoplay:true,
                     center: true,
                     autoplayTimeout:2000,
-                    autoplayHoverPause:true
+                    autoplayHoverPause:true,
+                    responsive:{
+                        0:{
+                            items: 2
+                        },
+                        780:{
+                            items: 2
+                        },
+                        1025:{
+                            items: 3
+                        }
+                    }
                 });
         });
         </script>
