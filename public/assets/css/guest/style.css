@@ -466,11 +466,19 @@ input:not(:placeholder-shown) + .label, input:focus + .label{
     }
 
     #navHeader li{
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .w30{
         width: 30%;
+    }
+
+    .w45{
+        width: 80%;
+    }
+
+    .w50{
+        width: 80%;
     }
 
     .shadow{
@@ -501,6 +509,7 @@ input:not(:placeholder-shown) + .label, input:focus + .label{
 
     .flex{
         display: block;
+        margin: 20px 50px 20px 50px;
     }
 
     .Tablette{
@@ -511,6 +520,10 @@ input:not(:placeholder-shown) + .label, input:focus + .label{
 
     .Tablette article div p{
         display: none;
+    }
+
+    .Tablette .flex{
+        margin: 20px 0;
     }
 
     .owl-carousel img{
@@ -587,6 +600,7 @@ input:not(:placeholder-shown) + .label, input:focus + .label{
 
     .flex{
         display: block;
+        margin: 20px 50px 20px 50px;
     }
 
     .Tablette{
