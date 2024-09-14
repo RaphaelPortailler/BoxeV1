@@ -12,6 +12,7 @@ use App\Repository\BoxeurRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -44,9 +45,26 @@ class IndexController extends AbstractController
             $randomBoxeurs = array_map(fn($key) => $boxeurs[$key], $randomBoxeurs);
         }
 
+        // Appel de l'API externe
+        //$client = HttpClient::create(['verify_peer' => false]);
+        //$response = $client->request('GET', 'https://boxingdata.onrender.com/api/boxers'); // URL de l'API
+
+        // Dump la réponse brute pour vérifier si la requête a fonctionné
+        //dump($response->getContent()); // Montre le contenu brut de la réponse de l'API
+        //exit(); // Arrête l'exécution pour afficher le contenu
+
+        // Vérification de la réponse
+        //if ($response->getStatusCode() === 200) {
+            //$apiBoxeurs = $response->toArray(); // Convertir en tableau associatif
+            //dd($apiBoxeurs);
+        //} else {
+            //$apiBoxeurs = []; // Si erreur, tableau vide
+        //}
+
         return $this->render('guest/index.html.twig', [
             'boxeurs' => $boxeurs,
-            'randomBoxeurs' => $randomBoxeurs
+            'randomBoxeurs' => $randomBoxeurs,
+            //'apiBoxeurs' => $apiBoxeurs
         ]);
     }
 

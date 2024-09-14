@@ -44,6 +44,21 @@
                         {% endfor %}
                     </div>
                     {% endif %}
+                    {# <div class="w50 apiBoxeurs">
+                        <h2>Boxeurs de l'API</h2>
+                        <ul>
+                            {% for apiBoxeur in apiBoxeurs %}
+                                <li class="boxeur-item">
+                                    <h3>{{ apiBoxeur.name }}</h3>
+                                    <p><strong>Nationalité :</strong> {{ apiBoxeur.nationality }}</p>
+                                    <p><strong>Record :</strong> {{ apiBoxeur.record }}</p>
+                                    <p><strong>Classement :</strong> {{ apiBoxeur.rank }}</p>
+                                </li>
+                            {% else %}
+                                <p>Aucun boxeur disponible pour le moment depuis l'API.</p>
+                            {% endfor %}
+                        </ul>
+                    </div> #}
                 </div>
             </section>
 

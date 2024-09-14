@@ -39,17 +39,17 @@
                 </div>
             #}
             </div>
-            <div class="flex padd10px">
+            <div class="flex padd10px center">
                 <button class="btn btn-lg btn-primary btnConnexion connexionUser" type="submit">
                     Connexion
                 </button>
             </div>
             <div>
-                <p><a class="ancreBoxeAng" href="{{ path('forgot_password') }}">Mot de passe oublié ?</a></p>
+                <p class="center padd10px"><a class="ancreBoxeAng" href="{{ path('forgot_password') }}">Mot de passe oublié ?</a></p>
             </div>
         </form>
     </section>
-    <div class="flex padd10px font">
+    <div class="flex padd10px font center">
         <a class="ancreBoxeAng" href="{{ path('inscription') }}">Vous n'avez pas de compte ? Inscrivez-vous.</a>
     </div>
 {% endblock %}
