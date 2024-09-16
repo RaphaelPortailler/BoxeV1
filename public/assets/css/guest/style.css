@@ -469,7 +469,7 @@ input:not(:placeholder-shown) + .label, input:focus + .label{
     }
 
     #navHeader li{
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .w30{
