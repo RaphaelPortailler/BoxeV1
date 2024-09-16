@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const ulHeader = document.querySelector('#ulHeader');
 
     burger.addEventListener('click', function() {
-        console.log('coucou')
         document.getElementById('ulHeader').classList.toggle('active');
     });
 });
